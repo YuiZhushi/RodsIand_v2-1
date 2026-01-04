@@ -1,135 +1,122 @@
 <head>
   <script type="module">
     var a = {
-      286() {
-        $(() => {
-          const a = "阿克柰子mini",
-            e = { "\x3c!--西幻开局--\x3e": "西幻世界" };
-          let t = !1,
-            s = !1;
-          async function n(e, t) {
-            getWorldbookNames().includes(a) &&
-              (await updateWorldbookWith(
-                a,
-                (a) =>
-                  a.map((a) =>
-                    a.name === e
-                      ? {
-                        ...a,
-                        enabled: t,
-                        strategy: {
-                          ...a.strategy,
-                          type: t ? "constant" : "selective",
-                        },
-                      }
-                      : a
-                  ),
-                { render: "immediate" }
-              ));
-          }
-          async function d() {
-            const a = (function () {
-              const a = getChatMessages(0);
-              if (0 === a.length) return null;
-              const t = a.find((a) => "assistant" === a.role);
-              if (!t) return null;
-              const s = t.message || "";
-              for (const [a, t] of Object.entries(e))
-                if (s.includes(a)) return t;
-              return null;
-            })();
-            for (const [, t] of Object.entries(e)) await n(t, a === t);
-            s = !0;
-          }
-          eventOn(tavern_events.MESSAGE_SENT, async () => {
-            s ||
-              setTimeout(async () => {
-                const a = getChatMessages(0).find(
-                  (a) => "assistant" === a.role
-                ),
-                  e = getChatMessages(-1).find((a) => "user" === a.role);
-                a && e && ((t = !0), await d(), (t = !1));
-              }, 200);
-          }),
-            eventOn(
-              tavern_events.GENERATE_BEFORE_COMBINE_PROMPTS,
-              async () => {
+        286() {
+          $(() => {
+            const a = '阿克柰子mini',
+              e = { '\x3c!--西幻开局--\x3e': '西幻世界' };
+            let t = !1,
+              s = !1;
+            async function n(e, t) {
+              getWorldbookNames().includes(a) &&
+                (await updateWorldbookWith(
+                  a,
+                  a =>
+                    a.map(a =>
+                      a.name === e
+                        ? {
+                            ...a,
+                            enabled: t,
+                            strategy: {
+                              ...a.strategy,
+                              type: t ? 'constant' : 'selective',
+                            },
+                          }
+                        : a,
+                    ),
+                  { render: 'immediate' },
+                ));
+            }
+            async function d() {
+              const a = (function () {
+                const a = getChatMessages(0);
+                if (0 === a.length) return null;
+                const t = a.find(a => 'assistant' === a.role);
+                if (!t) return null;
+                const s = t.message || '';
+                for (const [a, t] of Object.entries(e)) if (s.includes(a)) return t;
+                return null;
+              })();
+              for (const [, t] of Object.entries(e)) await n(t, a === t);
+              s = !0;
+            }
+            (eventOn(tavern_events.MESSAGE_SENT, async () => {
+              s ||
+                setTimeout(async () => {
+                  const a = getChatMessages(0).find(a => 'assistant' === a.role),
+                    e = getChatMessages(-1).find(a => 'user' === a.role);
+                  a && e && ((t = !0), await d(), (t = !1));
+                }, 200);
+            }),
+              eventOn(tavern_events.GENERATE_BEFORE_COMBINE_PROMPTS, async () => {
                 t && (await d(), (t = !1));
-              }
-            );
-        });
+              }));
+          });
+        },
       },
-    },
       e = {};
     function t(s) {
       var n = e[s];
       if (void 0 !== n) return n.exports;
       var d = (e[s] = { exports: {} });
-      return a[s](d, d.exports, t), d.exports;
+      return (a[s](d, d.exports, t), d.exports);
     }
-    (t.n = (a) => {
+    ((t.n = a => {
       var e = a && a.__esModule ? () => a.default : () => a;
-      return t.d(e, { a: e }), e;
+      return (t.d(e, { a: e }), e);
     }),
       (t.d = (a, e) => {
-        for (var s in e)
-          t.o(e, s) &&
-            !t.o(a, s) &&
-            Object.defineProperty(a, s, { enumerable: !0, get: e[s] });
+        for (var s in e) t.o(e, s) && !t.o(a, s) && Object.defineProperty(a, s, { enumerable: !0, get: e[s] });
       }),
-      (t.o = (a, e) => Object.prototype.hasOwnProperty.call(a, e));
+      (t.o = (a, e) => Object.prototype.hasOwnProperty.call(a, e)));
     const s = _;
     var n = t.n(s);
     const d = [
       {
-        name: "简单",
+        name: '简单',
         armorValue: 0,
-        description: "轻松的性爱体验，无需复杂的战术博弈。",
-        enemyFeatures: [
-          "干员处于潜意识的最表层，她们保留着原作的性格，但心智松懈。",
-        ],
-        experienceFocus: "轻松的性爱体验，无需复杂的战术博弈。",
-        color: "#10b981",
+        description: '轻松的性爱体验，无需复杂的战术博弈。',
+        enemyFeatures: ['干员处于潜意识的最表层，她们保留着原作的性格，但心智松懈。'],
+        experienceFocus: '轻松的性爱体验，无需复杂的战术博弈。',
+        color: '#10b981',
       },
       {
-        name: "普通",
+        name: '普通',
         armorValue: 50,
-        description: "标准的罗德岛干员状态，保留着原作的性格。",
+        description: '标准的罗德岛干员状态，保留着原作的性格。',
         enemyFeatures: [
-          "标准的罗德岛干员状态，保留着原作的性格。",
-          "干员的心智相对放松，认为自己是自然的生活在这个世界中。",
-          "具备正常的战术素养，会组织进攻与反击。",
+          '标准的罗德岛干员状态，保留着原作的性格。',
+          '干员的心智相对放松，认为自己是自然的生活在这个世界中。',
+          '具备正常的战术素养，会组织进攻与反击。',
         ],
-        experienceFocus: "需要基本的资源管理和战术规划。",
-        color: "#0ea5e9",
+        experienceFocus: '需要基本的资源管理和战术规划。',
+        color: '#0ea5e9',
       },
       {
-        name: "困难",
+        name: '困难',
         armorValue: 70,
-        description:
-          "干员处于罗德岛的战时状态，保留原作性格的基础上相对谨慎和警惕。",
+        description: '干员处于罗德岛的战时状态，保留原作性格的基础上相对谨慎和警惕。',
         enemyFeatures: [
-          "干员处于罗德岛的战时状态，保留原作性格的基础上相对谨慎和警惕。",
-          "在拥有理智护甲时，意志坚定，对普通的性骚扰具有耐受力。",
-          "具备良好的战术素养，会组织进攻反击，设计圈套与策略运用。",
+          '干员处于罗德岛的战时状态，保留原作性格的基础上相对谨慎和警惕。',
+          '在拥有理智护甲时，意志坚定，对普通的性骚扰具有耐受力。',
+          '具备良好的战术素养，会组织进攻反击，设计圈套与策略运用。',
         ],
-        experienceFocus: "需要有效的资源管理和战术规划才能战胜对手。",
-        color: "#f59e0b",
+        experienceFocus: '需要有效的资源管理和战术规划才能战胜对手。',
+        color: '#f59e0b',
       },
       {
-        name: "极难",
+        name: '极难',
         armorValue: 100,
-        description: "这是一个冷酷、真实、没有任何情色滤镜的泰拉世界。",
+        description: '这是一个冷酷、真实、没有任何情色滤镜的泰拉世界。',
         enemyFeatures: [
-          "这是一个冷酷、真实、没有任何情色滤镜的泰拉世界。",
-          "所有的物理法则和人际关系都严格遵循原作设定。",
-          "这里的干员拥有最为完整的灵魂和独立的人格。",
+          '这是一个冷酷、真实、没有任何情色滤镜的泰拉世界。',
+          '所有的物理法则和人际关系都严格遵循原作设定。',
+          '这里的干员拥有最为完整的灵魂和独立的人格。',
           '她们对"性"持有符合其身份的保守或排斥态度。在拥有理智护甲时对性骚扰有极高的耐受力。',
-          "所有干员处于战时状态，会通过各种战术策略与战斗方式来消灭林楓，每个干员都会全力以赴。",
+          '所有干员处于战时状态，会通过各种战术策略与战斗方式来消灭林楓，每个干员都会全力以赴。',
         ],
-        experienceFocus:
-          "挑战极限，林楓不可能全身而退，需要极高的资源管理能力，随机应变能力和策略才能获得胜利。",
-        color: "#ef4444",
+        experienceFocus: '挑战极限，林楓不可能全身而退，需要极高的资源管理能力，随机应变能力和策略才能获得胜利。',
+        color: '#ef4444',
       },
     ];
     let i = null,
@@ -139,240 +126,167 @@
       r = 0;
     function p() {
       try {
-        const t = { type: "message", message_id: "latest" },
+        const t = { type: 'message', message_id: 'latest' },
           s = Mvu.getMvuData(t);
         if (s?.stat_data) {
           return (
-            ((a = n().get(s.stat_data, "玩家数据.难度等级")),
-              (e = ""),
-              Array.isArray(a) && a.length > 0 ? a[0] : a ?? e) || "无"
+            ((a = n().get(s.stat_data, '玩家数据.难度等级')),
+            (e = ''),
+            Array.isArray(a) && a.length > 0 ? a[0] : (a ?? e)) || '无'
           );
         }
       } catch (a) {
-        console.warn("Failed to get selected difficulty:", a);
+        console.warn('Failed to get selected difficulty:', a);
       }
       var a, e;
-      return "无";
+      return '无';
     }
     function u(a) {
-      (c = a), g();
+      ((c = a), g());
     }
     function f() {
-      o && (r = o.scrollTop), (c = null), g(), o && (o.scrollTop = r);
+      (o && (r = o.scrollTop), (c = null), g(), o && (o.scrollTop = r));
     }
     async function v() {
-      const a = l ? l.name : "普通",
+      const a = l ? l.name : '普通',
         e = '<span style="display: none;">开始作战</span>',
-        t = { type: "message", message_id: "latest" };
+        t = { type: 'message', message_id: 'latest' };
       try {
         const e = Mvu.getMvuData(t);
-        e &&
-          (n().set(e, "stat_data.玩家数据.难度等级", a),
-            await Mvu.replaceMvuData(e, t));
+        e && (n().set(e, 'stat_data.玩家数据.难度等级', a), await Mvu.replaceMvuData(e, t));
       } catch (a) {
-        console.warn("Failed to save difficulty selection:", a);
+        console.warn('Failed to save difficulty selection:', a);
       }
       if (triggerSlash) triggerSlash(`/setinput ${e}|`);
       else {
-        const a = $("#send_textarea");
-        a.val(e),
-          a.trigger("input"),
-          a[0].dispatchEvent(
-            new KeyboardEvent("keydown", { key: "Enter", bubbles: !0 })
-          );
+        const a = $('#send_textarea');
+        (a.val(e), a.trigger('input'), a[0].dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', bubbles: !0 })));
       }
-      o && (o.innerHTML = "");
+      o && (o.innerHTML = '');
     }
     function g() {
       if (!o) return;
       const a = o.scrollTop,
-        e = $("<div>").addClass("difficulty-selector-root"),
-        t = $("<div>").addClass("difficulty-title-section");
-      t.append(
-        $("<div>").addClass("difficulty-main-title").text("选择难度等级")
-      ),
-        t.append(
-          $("<div>")
-            .addClass("difficulty-subtitle")
-            .text("不同难度会影响敌人的理智护甲值和战斗强度")
-        ),
-        e.append(t);
-      const s = $("<div>").addClass("difficulty-grid");
-      d.forEach((a) => {
+        e = $('<div>').addClass('difficulty-selector-root'),
+        t = $('<div>').addClass('difficulty-title-section');
+      (t.append($('<div>').addClass('difficulty-main-title').text('选择难度等级')),
+        t.append($('<div>').addClass('difficulty-subtitle').text('不同难度会影响敌人的理智护甲值和战斗强度')),
+        e.append(t));
+      const s = $('<div>').addClass('difficulty-grid');
+      (d.forEach(a => {
         const e = l?.name === a.name,
           t = i?.name === a.name,
-          n = $("<div>")
-            .addClass("difficulty-card")
-            .toggleClass("selected", t)
-            .toggleClass("confirmed", e)
-            .css("--difficulty-color", a.color);
+          n = $('<div>')
+            .addClass('difficulty-card')
+            .toggleClass('selected', t)
+            .toggleClass('confirmed', e)
+            .css('--difficulty-color', a.color);
         e ||
-          n.on("click", (e) => {
-            e.stopPropagation(), u(a);
+          n.on('click', e => {
+            (e.stopPropagation(), u(a));
           });
-        const d = $("<div>").addClass("difficulty-card-header");
-        d.append($("<div>").addClass("difficulty-card-name").text(a.name)),
-          d.append(
-            $("<div>")
-              .addClass("difficulty-card-armor")
-              .text(`理智护甲: ${a.armorValue}`)
-          );
-        const o = $("<div>").addClass("difficulty-card-body");
-        o.append(
-          $("<div>").addClass("difficulty-card-desc").text(a.description)
-        );
-        const c = $("<div>").addClass("difficulty-card-footer");
+        const d = $('<div>').addClass('difficulty-card-header');
+        (d.append($('<div>').addClass('difficulty-card-name').text(a.name)),
+          d.append($('<div>').addClass('difficulty-card-armor').text(`理智护甲: ${a.armorValue}`)));
+        const o = $('<div>').addClass('difficulty-card-body');
+        o.append($('<div>').addClass('difficulty-card-desc').text(a.description));
+        const c = $('<div>').addClass('difficulty-card-footer');
         if (e) {
-          const e = $("<div>")
-            .addClass("difficulty-confirmed-badge")
-            .text("已确认")
-            .css("--difficulty-color", a.color)
+          const e = $('<div>')
+            .addClass('difficulty-confirmed-badge')
+            .text('已确认')
+            .css('--difficulty-color', a.color)
             .css(
-              "--difficulty-color-rgb",
+              '--difficulty-color-rgb',
               (() => {
-                const e = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(
-                  a.color
-                );
-                return e
-                  ? `${parseInt(e[1], 16)}, ${parseInt(e[2], 16)}, ${parseInt(
-                    e[3],
-                    16
-                  )}`
-                  : "14, 165, 233";
-              })()
+                const e = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(a.color);
+                return e ? `${parseInt(e[1], 16)}, ${parseInt(e[2], 16)}, ${parseInt(e[3], 16)}` : '14, 165, 233';
+              })(),
             );
           c.append(e);
         } else
           c.append(
-            $("<button>")
-              .addClass("difficulty-detail-btn")
-              .text("查看详情")
-              .on("click", (e) => {
-                e.stopPropagation(), e.preventDefault(), u(a);
-              })
+            $('<button>')
+              .addClass('difficulty-detail-btn')
+              .text('查看详情')
+              .on('click', e => {
+                (e.stopPropagation(), e.preventDefault(), u(a));
+              }),
           );
-        n.append(d).append(o).append(c), s.append(n);
+        (n.append(d).append(o).append(c), s.append(n));
       }),
-        e.append(s);
-      const n = $("<div>").addClass("difficulty-action-section");
+        e.append(s));
+      const n = $('<div>').addClass('difficulty-action-section');
       if (l) {
-        const a = (a) => {
-          const e = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(a);
-          return e
-            ? `${parseInt(e[1], 16)}, ${parseInt(e[2], 16)}, ${parseInt(
-              e[3],
-              16
-            )}`
-            : "14, 165, 233";
-        },
-          e = $("<div>")
-            .addClass("difficulty-confirmed-info")
-            .css("--difficulty-color", l.color)
-            .css("--difficulty-color-rgb", a(l.color));
-        e.html(
-          `<div class="difficulty-confirmed-label">已选择难度</div><div class="difficulty-confirmed-name">${l.name}</div>`
-        ),
-          n.append(e);
-      }
-      if (
-        (n.append(
-          $("<button>")
-            .addClass("difficulty-start-btn")
-            .text("开始作战")
-            .on("click", v)
-        ),
-          e.append(n),
-          c)
-      ) {
-        const a = $("<div>").addClass("difficulty-dialog-mask").on("click", f),
-          t = (a) => {
+        const a = a => {
             const e = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(a);
-            return e
-              ? `${parseInt(e[1], 16)}, ${parseInt(e[2], 16)}, ${parseInt(
-                e[3],
-                16
-              )}`
-              : "14, 165, 233";
+            return e ? `${parseInt(e[1], 16)}, ${parseInt(e[2], 16)}, ${parseInt(e[3], 16)}` : '14, 165, 233';
           },
-          s = $("<div>")
-            .addClass("difficulty-dialog")
-            .css("--difficulty-color", c.color)
-            .css("--difficulty-color-rgb", t(c.color))
-            .on("click", (a) => a.stopPropagation()),
-          n = $("<div>").addClass("difficulty-dialog-header");
-        n.append($("<div>").addClass("difficulty-dialog-title").text(c.name)),
-          n.append(
-            $("<div>")
-              .addClass("difficulty-dialog-armor")
-              .text(`理智护甲: ${c.armorValue}`)
-          ),
-          n.append(
-            $("<button>")
-              .addClass("difficulty-dialog-close")
-              .text("×")
-              .on("click", f)
-          );
-        const d = $("<div>").addClass("difficulty-dialog-body");
-        d.append(
-          $("<div>").addClass("difficulty-dialog-desc").text(c.description)
-        );
-        const o = $("<div>")
-          .addClass("difficulty-features-title")
-          .text("敌人特征：");
-        d.append(o);
-        const r = $("<div>").addClass("difficulty-features-list");
-        c.enemyFeatures.forEach((a) => {
-          r.append(
-            $("<div>").addClass("difficulty-feature-item").text(`• ${a}`)
-          );
-        }),
-          d.append(r);
-        const p = $("<div>")
-          .addClass("difficulty-experience-title")
-          .text("体验：");
-        d.append(p),
-          d.append(
-            $("<div>")
-              .addClass("difficulty-experience-text")
-              .text(c.experienceFocus)
-          );
-        const u = $("<div>").addClass("difficulty-dialog-actions");
-        u.append(
-          $("<button>")
-            .addClass("difficulty-dialog-cancel-btn")
-            .text("取消")
-            .on("click", f)
+          e = $('<div>')
+            .addClass('difficulty-confirmed-info')
+            .css('--difficulty-color', l.color)
+            .css('--difficulty-color-rgb', a(l.color));
+        (e.html(
+          `<div class="difficulty-confirmed-label">已选择难度</div><div class="difficulty-confirmed-name">${l.name}</div>`,
         ),
+          n.append(e));
+      }
+      if ((n.append($('<button>').addClass('difficulty-start-btn').text('开始作战').on('click', v)), e.append(n), c)) {
+        const a = $('<div>').addClass('difficulty-dialog-mask').on('click', f),
+          t = a => {
+            const e = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(a);
+            return e ? `${parseInt(e[1], 16)}, ${parseInt(e[2], 16)}, ${parseInt(e[3], 16)}` : '14, 165, 233';
+          },
+          s = $('<div>')
+            .addClass('difficulty-dialog')
+            .css('--difficulty-color', c.color)
+            .css('--difficulty-color-rgb', t(c.color))
+            .on('click', a => a.stopPropagation()),
+          n = $('<div>').addClass('difficulty-dialog-header');
+        (n.append($('<div>').addClass('difficulty-dialog-title').text(c.name)),
+          n.append($('<div>').addClass('difficulty-dialog-armor').text(`理智护甲: ${c.armorValue}`)),
+          n.append($('<button>').addClass('difficulty-dialog-close').text('×').on('click', f)));
+        const d = $('<div>').addClass('difficulty-dialog-body');
+        d.append($('<div>').addClass('difficulty-dialog-desc').text(c.description));
+        const o = $('<div>').addClass('difficulty-features-title').text('敌人特征：');
+        d.append(o);
+        const r = $('<div>').addClass('difficulty-features-list');
+        (c.enemyFeatures.forEach(a => {
+          r.append($('<div>').addClass('difficulty-feature-item').text(`• ${a}`));
+        }),
+          d.append(r));
+        const p = $('<div>').addClass('difficulty-experience-title').text('体验：');
+        (d.append(p), d.append($('<div>').addClass('difficulty-experience-text').text(c.experienceFocus)));
+        const u = $('<div>').addClass('difficulty-dialog-actions');
+        (u.append($('<button>').addClass('difficulty-dialog-cancel-btn').text('取消').on('click', f)),
           u.append(
-            $("<button>")
-              .addClass("difficulty-dialog-confirm-btn")
-              .text("确认选择")
-              .on("click", () => {
+            $('<button>')
+              .addClass('difficulty-dialog-confirm-btn')
+              .text('确认选择')
+              .on('click', () => {
                 c && ((i = c), i && ((l = i), f(), g()));
-              })
+              }),
           ),
           d.append(u),
           s.append(n).append(d),
           a.append(s),
-          e.append(a);
+          e.append(a));
       }
-      (o.innerHTML = ""),
-        o.appendChild(e[0]),
-        r > 0 ? (o.scrollTop = r) : a > 0 && (o.scrollTop = a);
+      ((o.innerHTML = ''), o.appendChild(e[0]), r > 0 ? (o.scrollTop = r) : a > 0 && (o.scrollTop = a));
     }
     $(() => {
-      (o = document.getElementById("difficulty-selector")),
+      ((o = document.getElementById('difficulty-selector')),
         o &&
-        (o && (o.innerHTML = ""),
+          (o && (o.innerHTML = ''),
           (async () => {
-            await waitGlobalInitialized("Mvu"),
-              window.addEventListener("showDifficultySelector", () => {
+            (await waitGlobalInitialized('Mvu'),
+              window.addEventListener('showDifficultySelector', () => {
                 const a = p();
-                a && "无" !== a ? o && (o.innerHTML = "") : g();
-              });
+                a && '无' !== a ? o && (o.innerHTML = '') : g();
+              }));
             const a = p();
-            a && "无" !== a && o && (o.innerHTML = "");
-          })());
+            a && '无' !== a && o && (o.innerHTML = '');
+          })()));
     });
     let m = [],
       C = !1, //默認收起
@@ -380,139 +294,123 @@
       b = null;
     function y() {
       const a = (function () {
-        const a = getChatMessages(-1, { role: "assistant" });
+        const a = getChatMessages(-1, { role: 'assistant' });
         if (!a?.length) return [];
-        const e = a[0].message.match(
-          new RegExp("<game_options>(.*?)</game_options>", "s")
-        );
+        const e = a[0].message.match(new RegExp('<game_options>(.*?)</game_options>', 's'));
         if (!e) return [];
         const t = e[1].trim();
         if (!t) return [];
         const s = [];
         return (
           t
-            .split("\n")
-            .filter((a) => a.trim())
+            .split('\n')
+            .filter(a => a.trim())
             .forEach((a, e) => {
               const t = a.trim();
               if (!t) return;
-              const n = t.match(
-                new RegExp('<span style="display: none;">(.*?)</span>', "s")
-              ),
-                d = n ? n[1].trim() : "";
-              let i = t
-                .replace(
-                  new RegExp('<span style="display: none;">.*?</span>', "gs"),
-                  ""
-                )
-                .trim();
+              const n = t.match(new RegExp('<span style="display: none;">(.*?)</span>', 's')),
+                d = n ? n[1].trim() : '';
+              let i = t.replace(new RegExp('<span style="display: none;">.*?</span>', 'gs'), '').trim();
               const l = i.match(/^(?:选项\s*\d+|[\d.]+)[:：]\s*(.+)$/);
-              l && (i = l[1].trim()),
-                i && s.push({ id: `option${e + 1}`, text: i, hiddenResult: d });
+              (l && (i = l[1].trim()), i && s.push({ id: `option${e + 1}`, text: i, hiddenResult: d }));
             }),
           s
         );
       })();
       // (m = a), a.length > 0 && (C = !0), E(); //取消自動展開
-      (m = a), (selectedOptions = []), E();
+      ((m = a), (selectedOptions = []), E());
     }
     function h() {
-      (C = !C), E();
+      ((C = !C), E());
     }
     function x(a) {
-      const t = selectedOptions.findIndex((e) => e.id === a.id);
+      const t = selectedOptions.findIndex(e => e.id === a.id);
       -1 !== t ? selectedOptions.splice(t, 1) : selectedOptions.push(a);
-      let e = "";
+      let e = '';
       if (selectedOptions.length > 0) {
-        e = `我选择了：${selectedOptions.map((a) => a.text).join("，")}`;
+        e = `我选择了：${selectedOptions.map(a => a.text).join('，')}`;
         const s = selectedOptions
-          .map((a) => a.hiddenResult)
+          .map(a => a.hiddenResult)
           .filter(Boolean)
-          .join("");
+          .join('');
         s && (e += `<span style="display: none;">${s}</span>`);
       }
-        (function (a) {
-          const e = window.parent.document.querySelector("#send_textarea");
-          e
-            ? ((e.value = a),
-              e.dispatchEvent(new Event("input", { bubbles: !0 })),
-              e.focus())
-            : console.error("[选项] 未找到聊天输入框");
-        })(e),
-        E();
+      ((function (a) {
+        const e = window.parent.document.querySelector('#send_textarea');
+        e
+          ? ((e.value = a), e.dispatchEvent(new Event('input', { bubbles: !0 })), e.focus())
+          : console.error('[选项] 未找到聊天输入框');
+      })(e),
+        E());
     }
     function E() {
       if (!b) return;
-      if (0 === m.length) return void (b.innerHTML = "");
-      const a = $("<div>").addClass("options-root"),
-        e = $("<div>").addClass("options-panel"),
-        t = $("<div>").addClass("panel-header").on("click", h),
-        s = $("<div>").addClass("panel-header-content");
-      s.append($("<div>").addClass("panel-title").text("选择行动")),
-        C || s.append($("<div>").addClass("panel-sub").text("点击展开选项"));
-      const n = $("<div>").addClass("expand-icon").text("▼");
-      if ((C && n.addClass("expanded"), t.append(s).append(n), C)) {
-        const a = $("<div>").addClass("options-grid");
-        m.forEach((e, t) => {
-          const s = $("<button>")
-            .addClass("option-btn")
+      if (0 === m.length) return void (b.innerHTML = '');
+      const a = $('<div>').addClass('options-root'),
+        e = $('<div>').addClass('options-panel'),
+        t = $('<div>').addClass('panel-header').on('click', h),
+        s = $('<div>').addClass('panel-header-content');
+      (s.append($('<div>').addClass('panel-title').text('选择行动')),
+        C || s.append($('<div>').addClass('panel-sub').text('点击展开选项')));
+      const n = $('<div>').addClass('expand-icon').text('▼');
+      if ((C && n.addClass('expanded'), t.append(s).append(n), C)) {
+        const a = $('<div>').addClass('options-grid');
+        (m.forEach((e, t) => {
+          const s = $('<button>')
+            .addClass('option-btn')
             .toggleClass(
-              "selected",
-              selectedOptions.some((t) => t.id === e.id)
+              'selected',
+              selectedOptions.some(t => t.id === e.id),
             )
-            .on("click", () => x(e));
-          s.append($("<div>").addClass("option-text").text(e.text)),
-            a.append(s);
+            .on('click', () => x(e));
+          (s.append($('<div>').addClass('option-text').text(e.text)), a.append(s));
         }),
-          e.append(t).append(a);
+          e.append(t).append(a));
       } else e.append(t);
-      a.append(e), (b.innerHTML = ""), b.appendChild(a[0]);
+      (a.append(e), (b.innerHTML = ''), b.appendChild(a[0]));
     }
     function M(a, e) {
-      return Array.isArray(a) && a.length > 0 ? a[0] : a ?? e;
+      return Array.isArray(a) && a.length > 0 ? a[0] : (a ?? e);
     }
     $(() => {
-      if (((b = document.getElementById("options-app")), !b)) return;
-      if (!document.getElementById("multi-select-style")) {
-        $("head").append(
-          `<style id="multi-select-style">.option-btn.selected { border-color: #22d3ee; background: rgba(34, 211, 238, 0.2); color: #22d3ee; }</style>`
+      if (((b = document.getElementById('options-app')), !b)) return;
+      if (!document.getElementById('multi-select-style')) {
+        $('head').append(
+          `<style id="multi-select-style">.option-btn.selected { border-color: #22d3ee; background: rgba(34, 211, 238, 0.2); color: #22d3ee; }</style>`,
         );
       }
       y();
       let a = null;
       const e = () => {
-        a && clearTimeout(a),
+        (a && clearTimeout(a),
           (a = setTimeout(() => {
             y();
-          }, 150));
+          }, 150)));
       };
       eventOn &&
         tavern_events &&
-        (eventOn(tavern_events.MESSAGE_RECEIVED, e),
-          eventOn(tavern_events.GENERATION_ENDED, e));
+        (eventOn(tavern_events.MESSAGE_RECEIVED, e), eventOn(tavern_events.GENERATION_ENDED, e));
       const t = window.Mvu;
-      eventOn &&
-        t?.events?.VARIABLE_UPDATE_ENDED &&
-        eventOn(t.events.VARIABLE_UPDATE_ENDED, e);
+      eventOn && t?.events?.VARIABLE_UPDATE_ENDED && eventOn(t.events.VARIABLE_UPDATE_ENDED, e);
     });
     let w = { demonShackles: !1, layer5Intro: !1, finalBoss: !1 };
     function k() {
       try {
-        const a = { type: "message", message_id: "latest" },
+        const a = { type: 'message', message_id: 'latest' },
           e = Mvu.getMvuData(a);
         if (e?.stat_data) {
-          const a = M(n().get(e.stat_data, "玩家数据.持有藏品"), []);
+          const a = M(n().get(e.stat_data, '玩家数据.持有藏品'), []);
           if (Array.isArray(a))
-            return a.some((a) => {
-              if (a && "object" == typeof a) {
-                const e = M(a["名称"] || "", "");
-                return String(e).includes("魔王的镣铐");
+            return a.some(a => {
+              if (a && 'object' == typeof a) {
+                const e = M(a['名称'] || '', '');
+                return String(e).includes('魔王的镣铐');
               }
               return !1;
             });
         }
       } catch (a) {
-        console.warn("Failed to check demon shackles:", a);
+        console.warn('Failed to check demon shackles:', a);
       }
       return !1;
     }
@@ -521,129 +419,121 @@
         SillyTavern?.setExtensionPrompt
           ? (await SillyTavern.setExtensionPrompt(a, e, 1, 0, !1, 0),
             console.info(`[特殊事件] 已通过extension prompt注入提示词: ${a}`))
-          : console.warn("[特殊事件] SillyTavern.setExtensionPrompt 不可用");
+          : console.warn('[特殊事件] SillyTavern.setExtensionPrompt 不可用');
       } catch (a) {
-        console.error("[特殊事件] 注入提示词失败:", a);
+        console.error('[特殊事件] 注入提示词失败:', a);
       }
     }
     async function A() {
       try {
-        const a = { type: "message", message_id: "latest" },
+        const a = { type: 'message', message_id: 'latest' },
           e = Mvu.getMvuData(a);
-        if (!e?.stat_data)
-          return void console.debug("[特殊事件] 无法获取stat_data");
-        const t = Number(M(n().get(e.stat_data, "探索进度.当前层数"), 0)),
-          s = Number(M(n().get(e.stat_data, "探索进度.当前关卡"), 0));
+        if (!e?.stat_data) return void console.debug('[特殊事件] 无法获取stat_data');
+        const t = Number(M(n().get(e.stat_data, '探索进度.当前层数'), 0)),
+          s = Number(M(n().get(e.stat_data, '探索进度.当前关卡'), 0));
         if (
           (console.debug(`[特殊事件] 当前位置: 第${t}层 第${s}节点`),
-            console.debug("[特殊事件] 触发状态:", w),
-            !w.demonShackles && 3 === t && 7 === s)
+          console.debug('[特殊事件] 触发状态:', w),
+          !w.demonShackles && 3 === t && 7 === s)
         ) {
-          console.info("[特殊事件] 检测到第3层第7节点，准备发送魔王的镣铐提示");
+          console.info('[特殊事件] 检测到第3层第7节点，准备发送魔王的镣铐提示');
           const a =
             "【特殊藏品出现】\n第3层【险路恶敌】（BOSS战）战斗胜利后，除了战斗正常获得的藏品之外，还在战利品中发现了一个散发着不祥气息的独特藏品：\n\n【魔王的镣铐】\n描述：散发着不祥气息的光环\n效果：所有敌方干员的【理智护甲】上限提升 30%，游戏走向新的结局\n\n**重要指示**：\n1. 在战斗胜利的描述中，明确提到发现了这个特殊藏品\n2. 必须在回复末尾生成选项，让林楓选择拾取哪个藏品\n3. 如果林楓选择拾取【魔王的镣铐】，才使用变量更新命令添加到藏品列表：\n   _.insert('玩家数据.持有藏品', {名称:'魔王的镣铐', 描述:'散发着不祥气息的光环'});\n4. 如果林楓选择拾取其他藏品或离开，则不添加【魔王的镣铐】到藏品列表中\n5. 注意：藏品数据格式必须是 {名称:'...', 描述:'...'}，不要使用\"效果\"字段\n\n选项示例：\n<game_options>\n选项1: 拾取【魔王的镣铐】\n选项2: 拾取另一个藏品（战斗正常获得的藏品）\n选项3: 离开\n</game_options>";
-          await D("special_event_demon_shackles", a),
+          (await D('special_event_demon_shackles', a),
             (w.demonShackles = !0),
-            console.info("[特殊事件] ✓ 已触发：魔王的镣铐");
+            console.info('[特殊事件] ✓ 已触发：魔王的镣铐'));
         }
         if (!w.layer5Intro && 5 === t && 1 === s && k()) {
-          console.info("[特殊事件] 检测到第5层第1节点且拥有魔王的镣铐");
+          console.info('[特殊事件] 检测到第5层第1节点且拥有魔王的镣铐');
           const a =
-            "BOSS档案（出现在第五层第七节点）：\n  名称: 文明的枷锁·阿米娅 (Civilight Eterna)\n  称号: 魔王 / 众魂的容器\n\n  身份:\n    - 萨卡兹的君主，魔王力量的完全解放形态。\n    - 泰拉文明理智、道德与责任的终极具象化。\n\n  视觉形象 (参考魔王形态):\n    - 服装: 身着一袭漆黑的、由某种高分子材料编织而成的华丽长裙礼服。礼服的设计充满了禁欲感，领口紧束至下巴，长袖末端被多重黑色的皮带死死勒住，象征着对自身的绝对约束。\n    - 头饰: 头顶佩戴着一顶由黑色源石晶体构成的尖刺王冠，那些晶体仿佛是直接从她的头骨中生长出来的，带着一种残酷的美感。\n    - 武器: 手持一把巨大的黑色长剑【影霄】，剑身周围缭绕着黑色的气息，那是历代魔王的悲愿。\n    - 氛围: 她身后悬浮着巨大的黑色菱形晶体光环，表情不再是平日的温和，而是如神像般冰冷、悲悯且不可侵犯。";
-          await D("special_event_layer5_intro", a),
+            'BOSS档案（出现在第五层第七节点）：\n  名称: 文明的枷锁·阿米娅 (Civilight Eterna)\n  称号: 魔王 / 众魂的容器\n\n  身份:\n    - 萨卡兹的君主，魔王力量的完全解放形态。\n    - 泰拉文明理智、道德与责任的终极具象化。\n\n  视觉形象 (参考魔王形态):\n    - 服装: 身着一袭漆黑的、由某种高分子材料编织而成的华丽长裙礼服。礼服的设计充满了禁欲感，领口紧束至下巴，长袖末端被多重黑色的皮带死死勒住，象征着对自身的绝对约束。\n    - 头饰: 头顶佩戴着一顶由黑色源石晶体构成的尖刺王冠，那些晶体仿佛是直接从她的头骨中生长出来的，带着一种残酷的美感。\n    - 武器: 手持一把巨大的黑色长剑【影霄】，剑身周围缭绕着黑色的气息，那是历代魔王的悲愿。\n    - 氛围: 她身后悬浮着巨大的黑色菱形晶体光环，表情不再是平日的温和，而是如神像般冰冷、悲悯且不可侵犯。';
+          (await D('special_event_layer5_intro', a),
             (w.layer5Intro = !0),
-            console.info("[特殊事件] ✓ 已触发：第5层序章");
+            console.info('[特殊事件] ✓ 已触发：第5层序章'));
         }
         if (!w.finalBoss && 5 === t && 7 === s && k()) {
-          console.info("[特殊事件] 检测到第5层第7节点且拥有魔王的镣铐");
+          console.info('[特殊事件] 检测到第5层第7节点且拥有魔王的镣铐');
           const a =
-            "BOSS档案（出现在第五层第七节点）：\n  名称: 文明的枷锁·阿米娅 (Civilight Eterna)\n  称号: 魔王 / 众魂的容器\n\n  身份:\n    - 萨卡兹的君主，魔王力量的完全解放形态。\n    - 泰拉文明理智、道德与责任的终极具象化。\n\n  视觉形象 (参考魔王形态):\n    - 服装: 身着一袭漆黑的、由某种高分子材料编织而成的华丽长裙礼服。礼服的设计充满了禁欲感，领口紧束至下巴，长袖末端被多重黑色的皮带死死勒住，象征着对自身的绝对约束。\n    - 头饰: 头顶佩戴着一顶由黑色源石晶体构成的尖刺王冠，那些晶体仿佛是直接从她的头骨中生长出来的，带着一种残酷的美感。\n    - 武器: 手持一把巨大的黑色长剑【影霄】，剑身周围缭绕着黑色的气息，那是历代魔王的悲愿。\n    - 氛围: 她身后悬浮着巨大的黑色菱形晶体光环，表情不再是平日的温和，而是如神像般冰冷、悲悯且不可侵犯。";
-          await D("special_event_final_boss", a),
-            (w.finalBoss = !0),
-            console.info("[特殊事件] ✓ 已触发：最终BOSS战");
+            'BOSS档案（出现在第五层第七节点）：\n  名称: 文明的枷锁·阿米娅 (Civilight Eterna)\n  称号: 魔王 / 众魂的容器\n\n  身份:\n    - 萨卡兹的君主，魔王力量的完全解放形态。\n    - 泰拉文明理智、道德与责任的终极具象化。\n\n  视觉形象 (参考魔王形态):\n    - 服装: 身着一袭漆黑的、由某种高分子材料编织而成的华丽长裙礼服。礼服的设计充满了禁欲感，领口紧束至下巴，长袖末端被多重黑色的皮带死死勒住，象征着对自身的绝对约束。\n    - 头饰: 头顶佩戴着一顶由黑色源石晶体构成的尖刺王冠，那些晶体仿佛是直接从她的头骨中生长出来的，带着一种残酷的美感。\n    - 武器: 手持一把巨大的黑色长剑【影霄】，剑身周围缭绕着黑色的气息，那是历代魔王的悲愿。\n    - 氛围: 她身后悬浮着巨大的黑色菱形晶体光环，表情不再是平日的温和，而是如神像般冰冷、悲悯且不可侵犯。';
+          (await D('special_event_final_boss', a), (w.finalBoss = !0), console.info('[特殊事件] ✓ 已触发：最终BOSS战'));
         }
       } catch (a) {
-        console.error("[特殊事件] 检查事件时出错:", a);
+        console.error('[特殊事件] 检查事件时出错:', a);
       }
     }
     $(() => {
       (async () => {
-        console.info("[特殊事件触发器] 开始初始化..."),
-          await waitGlobalInitialized("Mvu"),
-          console.info("[特殊事件触发器] Mvu已就绪"),
-          console.info("[特殊事件触发器] 执行初始检查"),
+        (console.info('[特殊事件触发器] 开始初始化...'),
+          await waitGlobalInitialized('Mvu'),
+          console.info('[特殊事件触发器] Mvu已就绪'),
+          console.info('[特殊事件触发器] 执行初始检查'),
           A(),
           eventOn && Mvu?.events?.VARIABLE_UPDATE_ENDED
             ? (eventOn(Mvu.events.VARIABLE_UPDATE_ENDED, () => {
-              console.debug("[特殊事件触发器] 检测到变量更新事件"), A();
-            }),
-              console.info("[特殊事件触发器] 已注册变量更新监听器"))
-            : console.warn("[特殊事件触发器] 无法注册变量更新监听器"),
+                (console.debug('[特殊事件触发器] 检测到变量更新事件'), A());
+              }),
+              console.info('[特殊事件触发器] 已注册变量更新监听器'))
+            : console.warn('[特殊事件触发器] 无法注册变量更新监听器'),
           eventOn && tavern_events?.MESSAGE_RECEIVED
             ? (eventOn(tavern_events.MESSAGE_RECEIVED, () => {
-              console.debug("[特殊事件触发器] 检测到消息接收事件"),
-                setTimeout(() => {
-                  A();
-                }, 100);
-            }),
-              console.info("[特殊事件触发器] 已注册消息接收监听器"))
-            : console.warn("[特殊事件触发器] 无法注册消息接收监听器"),
-          console.info("[特殊事件触发器] ✓ 初始化完成");
+                (console.debug('[特殊事件触发器] 检测到消息接收事件'),
+                  setTimeout(() => {
+                    A();
+                  }, 100));
+              }),
+              console.info('[特殊事件触发器] 已注册消息接收监听器'))
+            : console.warn('[特殊事件触发器] 无法注册消息接收监听器'),
+          console.info('[特殊事件触发器] ✓ 初始化完成'));
       })();
     });
     const N = [
       {
-        name: "指挥分队",
-        description:
-          "以指挥和掌控为核心的分队，擅长通过精神吸取恢复体力，并通过母畜干员的性服务获得正面反馈。",
+        name: '指挥分队',
+        description: '以指挥和掌控为核心的分队，擅长通过精神吸取恢复体力，并通过母畜干员的性服务获得正面反馈。',
         benefits: [
-          "每次战斗结束后，自动对战败干员进行一次精神吸取，恢复 15 点体力值。",
-          "部署位的母畜干员在进行性服务时，提供的正面反馈效果提升。",
+          '每次战斗结束后，自动对战败干员进行一次精神吸取，恢复 15 点体力值。',
+          '部署位的母畜干员在进行性服务时，提供的正面反馈效果提升。',
         ],
-        color: "#0ea5e9",
+        color: '#0ea5e9',
       },
       {
-        name: "矛头分队",
-        description:
-          "以高风险高回报为特点的分队，通过降低自身体力值换取更高的伤害输出和敌方敏感度提升。",
+        name: '矛头分队',
+        description: '以高风险高回报为特点的分队，通过降低自身体力值换取更高的伤害输出和敌方敏感度提升。',
         benefits: [
-          "林楓的【体力值】初始降为15点",
-          "所有性行为造成的【堕落值】伤害翻倍",
-          "敌方干员的敏感度被强行提升，更容易高潮瘫痪或连续高潮",
+          '林楓的【体力值】初始降为15点',
+          '所有性行为造成的【堕落值】伤害翻倍',
+          '敌方干员的敏感度被强行提升，更容易高潮瘫痪或连续高潮',
         ],
-        color: "#ef4444",
+        color: '#ef4444',
       },
       {
-        name: "心胜于物分队",
-        description:
-          "专注于收集和利用藏品的分队，所有藏品都会触发特殊的色情效果，商店更容易刷新稀有藏品。",
+        name: '心胜于物分队',
+        description: '专注于收集和利用藏品的分队，所有藏品都会触发特殊的色情效果，商店更容易刷新稀有藏品。',
         benefits: [
-          "每次战斗胜利后，必定额外获得一个随机【藏品】。",
-          "所有【藏品】不只是提升属性和作战能力，还会触发的特殊色情效果。",
-          "商店中出售【藏品】更容易刷新出带有色情和调教的稀有藏品。",
+          '每次战斗胜利后，必定额外获得一个随机【藏品】。',
+          '所有【藏品】不只是提升属性和作战能力，还会触发的特殊色情效果。',
+          '商店中出售【藏品】更容易刷新出带有色情和调教的稀有藏品。',
         ],
-        color: "#a855f7",
+        color: '#a855f7',
       },
       {
-        name: "永恒狩猎分队",
-        description:
-          "专注于资源获取的分队，战斗持续时间越长，获得的奖励越多，捕获的干员也会更加堕落。",
+        name: '永恒狩猎分队',
+        description: '专注于资源获取的分队，战斗持续时间越长，获得的奖励越多，捕获的干员也会更加堕落。',
         benefits: [
-          "战斗胜利后获得的【淫欲值】和【精液配给】奖励翻倍",
-          "战斗的持续时间越长，获得的奖励就越多",
-          "每次战斗胜利，战斗的持续时间越长，战斗越艰难，捕获的干员就会更加堕落",
+          '战斗胜利后获得的【淫欲值】和【精液配给】奖励翻倍',
+          '战斗的持续时间越长，获得的奖励就越多',
+          '每次战斗胜利，战斗的持续时间越长，战斗越艰难，捕获的干员就会更加堕落',
         ],
-        color: "#f59e0b",
+        color: '#f59e0b',
       },
       {
-        name: "异想天开分队",
-        description:
-          "以随机性和极端效果为特点的分队，每层都会获得随机的世界性癖词条，不期而遇事件效果大幅增强。",
+        name: '异想天开分队',
+        description: '以随机性和极端效果为特点的分队，每层都会获得随机的世界性癖词条，不期而遇事件效果大幅增强。',
         benefits: [
-          "进入每一层新区域时，随机获得一个持续整层的【世界性癖词条】",
-          "【不期而遇】节点遇到的事件效果大幅增强",
+          '进入每一层新区域时，随机获得一个持续整层的【世界性癖词条】',
+          '【不期而遇】节点遇到的事件效果大幅增强',
         ],
-        color: "#22d3ee",
+        color: '#22d3ee',
       },
     ];
     let S = null,
@@ -653,177 +543,143 @@
       O = 0;
     function R() {
       try {
-        const t = { type: "message", message_id: "latest" },
+        const t = { type: 'message', message_id: 'latest' },
           s = Mvu.getMvuData(t);
         if (s?.stat_data) {
           return (
-            ((a = n().get(s.stat_data, "玩家数据.选择分队")),
-              (e = ""),
-              Array.isArray(a) && a.length > 0 ? a[0] : a ?? e) || "无"
+            ((a = n().get(s.stat_data, '玩家数据.选择分队')),
+            (e = ''),
+            Array.isArray(a) && a.length > 0 ? a[0] : (a ?? e)) || '无'
           );
         }
       } catch (a) {
-        console.warn("Failed to get selected squad:", a);
+        console.warn('Failed to get selected squad:', a);
       }
       var a, e;
-      return "无";
+      return '无';
     }
     function P(a) {
-      (I = a), V();
+      ((I = a), V());
     }
     function B() {
-      T && (O = T.scrollTop), (I = null), V(), T && (T.scrollTop = O);
+      (T && (O = T.scrollTop), (I = null), V(), T && (T.scrollTop = O));
     }
     async function F() {
       if (!q) return;
       const a = q.name,
-        e = { type: "message", message_id: "latest" };
+        e = { type: 'message', message_id: 'latest' };
       try {
         const t = Mvu.getMvuData(e);
-        t &&
-          (n().set(t, "stat_data.玩家数据.选择分队", a),
-            await Mvu.replaceMvuData(t, e));
+        t && (n().set(t, 'stat_data.玩家数据.选择分队', a), await Mvu.replaceMvuData(t, e));
       } catch (a) {
-        console.warn("Failed to save squad selection:", a);
+        console.warn('Failed to save squad selection:', a);
       }
-      T && (T.innerHTML = "");
-      document.getElementById("difficulty-selector") &&
-        window.dispatchEvent(new CustomEvent("showDifficultySelector"));
+      T && (T.innerHTML = '');
+      document.getElementById('difficulty-selector') && window.dispatchEvent(new CustomEvent('showDifficultySelector'));
     }
     function V() {
       if (!T) return;
       const a = T.scrollTop,
-        e = $("<div>").addClass("squad-selector-root"),
-        t = $("<div>").addClass("squad-title-section");
-      t.append($("<div>").addClass("squad-main-title").text("选择你的分队")),
-        t.append(
-          $("<div>")
-            .addClass("squad-subtitle")
-            .text("每个分队都有独特的游戏机制和玩法风格")
-        ),
-        e.append(t);
-      const s = $("<div>").addClass("squad-grid");
-      N.forEach((a) => {
+        e = $('<div>').addClass('squad-selector-root'),
+        t = $('<div>').addClass('squad-title-section');
+      (t.append($('<div>').addClass('squad-main-title').text('选择你的分队')),
+        t.append($('<div>').addClass('squad-subtitle').text('每个分队都有独特的游戏机制和玩法风格')),
+        e.append(t));
+      const s = $('<div>').addClass('squad-grid');
+      (N.forEach(a => {
         const e = q?.name === a.name,
           t = S?.name === a.name,
-          n = $("<div>")
-            .addClass("squad-card")
-            .toggleClass("selected", t)
-            .toggleClass("confirmed", e)
-            .css("--squad-color", a.color);
+          n = $('<div>')
+            .addClass('squad-card')
+            .toggleClass('selected', t)
+            .toggleClass('confirmed', e)
+            .css('--squad-color', a.color);
         e ||
-          n.on("click", (e) => {
-            e.stopPropagation(), P(a);
+          n.on('click', e => {
+            (e.stopPropagation(), P(a));
           });
-        const d = $("<div>").addClass("squad-card-header");
-        d.append($("<div>").addClass("squad-card-name").text(a.name)),
-          a.alias &&
-          d.append($("<div>").addClass("squad-card-alias").text(a.alias));
-        const i = $("<div>").addClass("squad-card-body");
-        i.append($("<div>").addClass("squad-card-desc").text(a.description));
-        const l = $("<div>").addClass("squad-card-footer");
-        e
-          ? l.append(
-            $("<div>").addClass("squad-confirmed-badge").text("已确认")
-          )
+        const d = $('<div>').addClass('squad-card-header');
+        (d.append($('<div>').addClass('squad-card-name').text(a.name)),
+          a.alias && d.append($('<div>').addClass('squad-card-alias').text(a.alias)));
+        const i = $('<div>').addClass('squad-card-body');
+        i.append($('<div>').addClass('squad-card-desc').text(a.description));
+        const l = $('<div>').addClass('squad-card-footer');
+        (e
+          ? l.append($('<div>').addClass('squad-confirmed-badge').text('已确认'))
           : l.append(
-            $("<button>")
-              .addClass("squad-detail-btn")
-              .text("查看详情")
-              .on("click", (e) => {
-                e.stopPropagation(), e.preventDefault(), P(a);
-              })
-          ),
+              $('<button>')
+                .addClass('squad-detail-btn')
+                .text('查看详情')
+                .on('click', e => {
+                  (e.stopPropagation(), e.preventDefault(), P(a));
+                }),
+            ),
           n.append(d).append(i).append(l),
-          s.append(n);
+          s.append(n));
       }),
-        e.append(s);
-      const n = $("<div>").addClass("squad-action-section");
+        e.append(s));
+      const n = $('<div>').addClass('squad-action-section');
       if (
         (q &&
           (n.append(
-            $("<div>")
-              .addClass("squad-confirmed-info")
+            $('<div>')
+              .addClass('squad-confirmed-info')
               .html(
-                `<div class="squad-confirmed-label">已选择分队</div><div class="squad-confirmed-name">${q.name}</div>`
-              )
+                `<div class="squad-confirmed-label">已选择分队</div><div class="squad-confirmed-name">${q.name}</div>`,
+              ),
           ),
-            n.append(
-              $("<button>")
-                .addClass("squad-start-btn")
-                .text("确认并选择难度")
-                .on("click", F)
-            )),
-          e.append(n),
-          I)
+          n.append($('<button>').addClass('squad-start-btn').text('确认并选择难度').on('click', F))),
+        e.append(n),
+        I)
       ) {
-        const a = $("<div>").addClass("squad-dialog-mask").on("click", B),
-          t = (a) => {
+        const a = $('<div>').addClass('squad-dialog-mask').on('click', B),
+          t = a => {
             const e = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(a);
-            return e
-              ? `${parseInt(e[1], 16)}, ${parseInt(e[2], 16)}, ${parseInt(
-                e[3],
-                16
-              )}`
-              : "34, 211, 238";
+            return e ? `${parseInt(e[1], 16)}, ${parseInt(e[2], 16)}, ${parseInt(e[3], 16)}` : '34, 211, 238';
           },
-          s = $("<div>")
-            .addClass("squad-dialog")
-            .css("--squad-color", I.color)
-            .css("--squad-color-rgb", t(I.color))
-            .on("click", (a) => a.stopPropagation()),
-          n = $("<div>").addClass("squad-dialog-header");
-        n.append($("<div>").addClass("squad-dialog-title").text(I.name)),
-          n.append(
-            $("<button>")
-              .addClass("squad-dialog-close")
-              .text("×")
-              .on("click", B)
-          );
-        const d = $("<div>").addClass("squad-dialog-body");
-        d.append($("<div>").addClass("squad-dialog-desc").text(I.description));
-        const i = $("<div>")
-          .addClass("squad-benefits-title")
-          .text("初始增益：");
+          s = $('<div>')
+            .addClass('squad-dialog')
+            .css('--squad-color', I.color)
+            .css('--squad-color-rgb', t(I.color))
+            .on('click', a => a.stopPropagation()),
+          n = $('<div>').addClass('squad-dialog-header');
+        (n.append($('<div>').addClass('squad-dialog-title').text(I.name)),
+          n.append($('<button>').addClass('squad-dialog-close').text('×').on('click', B)));
+        const d = $('<div>').addClass('squad-dialog-body');
+        d.append($('<div>').addClass('squad-dialog-desc').text(I.description));
+        const i = $('<div>').addClass('squad-benefits-title').text('初始增益：');
         d.append(i);
-        const l = $("<div>").addClass("squad-benefits-list");
-        I.benefits.forEach((a) => {
-          const e = a.replace(/\([^)]*\)/g, "").trim();
-          l.append($("<div>").addClass("squad-benefit-item").text(`• ${e}`));
+        const l = $('<div>').addClass('squad-benefits-list');
+        (I.benefits.forEach(a => {
+          const e = a.replace(/\([^)]*\)/g, '').trim();
+          l.append($('<div>').addClass('squad-benefit-item').text(`• ${e}`));
         }),
-          d.append(l);
-        const o = $("<div>").addClass("squad-dialog-actions");
-        o.append(
-          $("<button>")
-            .addClass("squad-dialog-cancel-btn")
-            .text("取消")
-            .on("click", B)
-        ),
+          d.append(l));
+        const o = $('<div>').addClass('squad-dialog-actions');
+        (o.append($('<button>').addClass('squad-dialog-cancel-btn').text('取消').on('click', B)),
           o.append(
-            $("<button>")
-              .addClass("squad-dialog-confirm-btn")
-              .text("确认选择")
-              .on("click", () => {
+            $('<button>')
+              .addClass('squad-dialog-confirm-btn')
+              .text('确认选择')
+              .on('click', () => {
                 I && ((S = I), S && ((q = S), B(), V()));
-              })
+              }),
           ),
           d.append(o),
           s.append(n).append(d),
           a.append(s),
-          e.append(a);
+          e.append(a));
       }
-      (T.innerHTML = ""),
-        T.appendChild(e[0]),
-        O > 0 ? (T.scrollTop = O) : a > 0 && (T.scrollTop = a);
+      ((T.innerHTML = ''), T.appendChild(e[0]), O > 0 ? (T.scrollTop = O) : a > 0 && (T.scrollTop = a));
     }
     $(() => {
-      (T = document.getElementById("squad-selector")),
+      ((T = document.getElementById('squad-selector')),
         T &&
-        (async () => {
-          await waitGlobalInitialized("Mvu");
-          const a = R();
-          a && "无" !== a ? T && (T.innerHTML = "") : V();
-        })();
+          (async () => {
+            await waitGlobalInitialized('Mvu');
+            const a = R();
+            a && '无' !== a ? T && (T.innerHTML = '') : V();
+          })());
     });
     let L = null,
       G = !0,
@@ -837,64 +693,51 @@
       W = null,
       J = [];
     function Q(a, e) {
-      return Array.isArray(a) && a.length > 0 ? a[0] : a ?? e;
+      return Array.isArray(a) && a.length > 0 ? a[0] : (a ?? e);
     }
     function X(a) {
-      if (!a) return "";
+      if (!a) return '';
       const e = a.match(/【当前世界性癖词条[：:]\s*([^】]+)】/);
       if (e && e[1]) return e[1].trim();
       const t = a
-        .split("\n")[0]
-        .replace(/[*#【】]/g, "")
+        .split('\n')[0]
+        .replace(/[*#【】]/g, '')
         .trim();
-      return t.length <= 20 ? t : a.substring(0, 20) + "...";
+      return t.length <= 20 ? t : a.substring(0, 20) + '...';
     }
     function Y() {
       return L
         ? {
-          hp: Number(Q(n().get(L.stat_data, "核心资源.体力值"), 0)),
-          lust: Number(Q(n().get(L.stat_data, "核心资源.淫欲值"), 0)),
-          semen: Number(Q(n().get(L.stat_data, "核心资源.精液配给"), 0)),
-          layer: Number(Q(n().get(L.stat_data, "探索进度.当前层数"), 0)),
-          stage: Number(Q(n().get(L.stat_data, "探索进度.当前关卡"), 0)),
-          squad: String(Q(n().get(L.stat_data, "玩家数据.选择分队"), "无")),
-          difficulty: String(
-            Q(n().get(L.stat_data, "玩家数据.难度等级"), "无")
-          ),
-          fetishTerm: X(
-            String(Q(n().get(L.stat_data, "玩家数据.当前层世界性癖词条"), ""))
-          ),
-        }
+            hp: Number(Q(n().get(L.stat_data, '核心资源.体力值'), 0)),
+            lust: Number(Q(n().get(L.stat_data, '核心资源.淫欲值'), 0)),
+            semen: Number(Q(n().get(L.stat_data, '核心资源.精液配给'), 0)),
+            layer: Number(Q(n().get(L.stat_data, '探索进度.当前层数'), 0)),
+            stage: Number(Q(n().get(L.stat_data, '探索进度.当前关卡'), 0)),
+            squad: String(Q(n().get(L.stat_data, '玩家数据.选择分队'), '无')),
+            difficulty: String(Q(n().get(L.stat_data, '玩家数据.难度等级'), '无')),
+            fetishTerm: X(String(Q(n().get(L.stat_data, '玩家数据.当前层世界性癖词条'), ''))),
+          }
         : {
-          hp: 0,
-          lust: 0,
-          semen: 0,
-          layer: 0,
-          stage: 0,
-          squad: "无",
-          difficulty: "无",
-          fetishTerm: "",
-        };
+            hp: 0,
+            lust: 0,
+            semen: 0,
+            layer: 0,
+            stage: 0,
+            squad: '无',
+            difficulty: '无',
+            fetishTerm: '',
+          };
     }
     function Z(a) {
       return { 简单: 0, 普通: 50, 困难: 70, 极难: 100 }[a] || 0;
     }
     function aa(a) {
-      return [
-        "作战",
-        "紧急作战",
-        "险路恶敌",
-        "不期而遇",
-        "诡意行商",
-        "安全屋",
-        "闲暇娱乐",
-        "得偿所愿",
-      ].includes(a)
+      return ['作战', '紧急作战', '险路恶敌', '不期而遇', '诡意行商', '安全屋', '闲暇娱乐', '得偿所愿'].includes(a)
         ? a
-        : "未知";
+        : '未知';
     }
     function ea() {
-      (K = null), pa();
+      ((K = null), pa());
     }
     function ta() {
       if (!K) return;
@@ -903,193 +746,158 @@
         t = `<span style="display: none;">${`我选择了节点 ${a.nodeNumber}：${e}`}</span>`;
       if (triggerSlash) triggerSlash(`/setinput ${t}|`);
       else {
-        const a = $("#send_textarea");
-        a.val(t),
-          a.trigger("input"),
-          a[0].dispatchEvent(
-            new KeyboardEvent("keydown", { key: "Enter", bubbles: !0 })
-          );
+        const a = $('#send_textarea');
+        (a.val(t), a.trigger('input'), a[0].dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', bubbles: !0 })));
       }
       ea();
     }
     function sa() {
       if (!H) return;
-      if ("堕落" !== H.status) return;
+      if ('堕落' !== H.status) return;
       if (Y().lust < 6) return;
       const a = `我要晋升 ${H.name} 为母畜`;
       if (triggerSlash) triggerSlash(`/setinput ${a}|`);
       else {
-        const e = $("#send_textarea");
-        e.val(a),
-          e.trigger("input"),
-          e[0].dispatchEvent(
-            new KeyboardEvent("keydown", { key: "Enter", bubbles: !0 })
-          );
+        const e = $('#send_textarea');
+        (e.val(a), e.trigger('input'), e[0].dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', bubbles: !0 })));
       }
       da();
     }
     function na() {
-      (j = null), pa();
+      ((j = null), pa());
     }
     function da() {
-      (H = null), pa();
+      ((H = null), pa());
     }
     function ia(a) {
       !(function (a) {
-        const e = window.parent.document.querySelector("#send_textarea");
+        const e = window.parent.document.querySelector('#send_textarea');
         e
-          ? ((e.value = a),
-            e.dispatchEvent(new Event("input", { bubbles: !0 })),
-            e.focus())
-          : console.error("[状态栏] 未找到聊天输入框");
+          ? ((e.value = a), e.dispatchEvent(new Event('input', { bubbles: !0 })), e.focus())
+          : console.error('[状态栏] 未找到聊天输入框');
       })(`使用${a}技能`);
     }
     function la() {
       if (0 === J.length) return;
-      const a = `我要购买 ${J.join("、")}`;
+      const a = `我要购买 ${J.join('、')}`;
       if (triggerSlash) triggerSlash(`/setinput ${a}|`);
       else {
-        const e = $("#send_textarea");
-        e.val(a),
-          e.trigger("input"),
-          e[0].dispatchEvent(
-            new KeyboardEvent("keydown", { key: "Enter", bubbles: !0 })
-          );
+        const e = $('#send_textarea');
+        (e.val(a), e.trigger('input'), e[0].dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', bubbles: !0 })));
       }
-      (J = []), pa();
+      ((J = []), pa());
     }
     function oa() {
-      (J = []), pa();
+      ((J = []), pa());
     }
     function ca() {
       const a = getCurrentMessageId?.(),
         e = {
-          type: "message",
-          message_id: "number" == typeof a ? a : "latest",
+          type: 'message',
+          message_id: 'number' == typeof a ? a : 'latest',
         },
         t = Mvu.getMvuData(e);
       if (t?.stat_data) {
         L = Object.freeze(t);
         const a = (function () {
-          if (!L) return "";
-          const a = n().get(L.stat_data, "探索进度.当前层关卡列表") || [],
-            e = Y().stage,
-            t = a.find((a) => Number(a.节点编号 || a.nodeNumber || 0) === e);
-          return (t && (t.类型 || t.type)) || "";
-        })(),
-          e = U && "诡意行商" === a;
-        (U = "诡意行商" === a), !U && e && (J = []);
+            if (!L) return '';
+            const a = n().get(L.stat_data, '探索进度.当前层关卡列表') || [],
+              e = Y().stage,
+              t = a.find(a => Number(a.节点编号 || a.nodeNumber || 0) === e);
+            return (t && (t.类型 || t.type)) || '';
+          })(),
+          e = U && '诡意行商' === a;
+        ((U = '诡意行商' === a), !U && e && (J = []));
       }
       pa();
     }
     function ra() {
       const a = (function () {
-        if (!L) return [];
-        const a = n().get(L.stat_data, "探索进度.当前层关卡列表") || [],
-          e = Y().stage,
-          t = new Map();
-        a.forEach((a) => {
-          const s = Number(a.节点编号 || a.nodeNumber || 0);
-          t.has(s) || t.set(s, []);
-          const n = a.选项编号 || a.optionNumber,
-            d = s === e + 1;
-          t.get(s).push({
-            nodeNumber: s,
-            type: a.类型 || a.type || "",
-            completed: Boolean(a.已完成 || a.completed),
-            optionNumber: n ? Number(n) : void 0,
-            combatData: a.作战资料 || a.combatData,
-            canSelect: d,
+          if (!L) return [];
+          const a = n().get(L.stat_data, '探索进度.当前层关卡列表') || [],
+            e = Y().stage,
+            t = new Map();
+          a.forEach(a => {
+            const s = Number(a.节点编号 || a.nodeNumber || 0);
+            t.has(s) || t.set(s, []);
+            const n = a.选项编号 || a.optionNumber,
+              d = s === e + 1;
+            t.get(s).push({
+              nodeNumber: s,
+              type: a.类型 || a.type || '',
+              completed: Boolean(a.已完成 || a.completed),
+              optionNumber: n ? Number(n) : void 0,
+              combatData: a.作战资料 || a.combatData,
+              canSelect: d,
+            });
           });
-        });
-        const s = [];
-        return (
-          Array.from(t.keys())
-            .sort((a, e) => a - e)
-            .forEach((a) => {
-              const e = t.get(a);
-              e.length > 0 &&
-                (e.sort(
-                  (a, e) => (a.optionNumber || 0) - (e.optionNumber || 0)
-                ),
+          const s = [];
+          return (
+            Array.from(t.keys())
+              .sort((a, e) => a - e)
+              .forEach(a => {
+                const e = t.get(a);
+                e.length > 0 &&
+                  (e.sort((a, e) => (a.optionNumber || 0) - (e.optionNumber || 0)),
                   s.push({ nodeNumber: a, nodes: e }));
-            }),
-          s
-        );
-      })(),
+              }),
+            s
+          );
+        })(),
         e = Y(),
-        t = $("<div>").addClass("route-map");
+        t = $('<div>').addClass('route-map');
       return (
         a.forEach((s, n) => {
-          const d = $("<div>").addClass("route-node-group");
-          s.nodes.forEach((a, t) => {
-            const n = $("<div>")
-              .addClass("route-node-wrapper")
-              .toggleClass("has-options", s.nodes.length > 1)
-              .toggleClass("current-node", a.nodeNumber === e.stage)
-              .toggleClass("next-node", a.nodeNumber === e.stage + 1)
-              .toggleClass("completed", a.completed)
-              .toggleClass(
-                "selectable",
-                a.nodeNumber === e.stage + 1 && a.canSelect
-              ),
-              i = $("<div>")
-                .addClass("route-node")
+          const d = $('<div>').addClass('route-node-group');
+          (s.nodes.forEach((a, t) => {
+            const n = $('<div>')
+                .addClass('route-node-wrapper')
+                .toggleClass('has-options', s.nodes.length > 1)
+                .toggleClass('current-node', a.nodeNumber === e.stage)
+                .toggleClass('next-node', a.nodeNumber === e.stage + 1)
+                .toggleClass('completed', a.completed)
+                .toggleClass('selectable', a.nodeNumber === e.stage + 1 && a.canSelect),
+              i = $('<div>')
+                .addClass('route-node')
                 .addClass(
                   ((l = a.type),
-                    {
-                      作战: "combat",
-                      紧急作战: "urgent-combat",
-                      险路恶敌: "boss",
-                      不期而遇: "event",
-                      诡意行商: "shop",
-                      安全屋: "safehouse",
-                      闲暇娱乐: "leisure",
-                      得偿所愿: "reward",
-                    }[l] || "unknown")
+                  {
+                    作战: 'combat',
+                    紧急作战: 'urgent-combat',
+                    险路恶敌: 'boss',
+                    不期而遇: 'event',
+                    诡意行商: 'shop',
+                    安全屋: 'safehouse',
+                    闲暇娱乐: 'leisure',
+                    得偿所愿: 'reward',
+                  }[l] || 'unknown'),
                 )
-                .toggleClass("clickable", a.nodeNumber === e.stage + 1)
-                .on("click", () =>
+                .toggleClass('clickable', a.nodeNumber === e.stage + 1)
+                .on('click', () =>
                   (function (a) {
-                    a.nodeNumber === Y().stage + 1 &&
-                      a.canSelect &&
-                      ((K = a), pa());
-                  })(a)
+                    a.nodeNumber === Y().stage + 1 && a.canSelect && ((K = a), pa());
+                  })(a),
                 );
             var l;
-            s.nodes.length > 1 &&
+            (s.nodes.length > 1 &&
               a.optionNumber &&
-              i.append(
-                $("<div>")
-                  .addClass("option-number")
-                  .text(String(a.optionNumber))
-              ),
-              i.append(
-                $("<div>").addClass("node-number").text(String(a.nodeNumber))
-              ),
-              i.append($("<div>").addClass("node-type").text(aa(a.type))),
-              a.nodeNumber === e.stage &&
-              i.append(
-                $("<div>").addClass("current-marker").text("当前位置")
-              ),
+              i.append($('<div>').addClass('option-number').text(String(a.optionNumber))),
+              i.append($('<div>').addClass('node-number').text(String(a.nodeNumber))),
+              i.append($('<div>').addClass('node-type').text(aa(a.type))),
+              a.nodeNumber === e.stage && i.append($('<div>').addClass('current-marker').text('当前位置')),
               n.append(i),
-              s.nodes.length > 1 &&
-              t < s.nodes.length - 1 &&
-              n.append($("<div>").addClass("option-connector")),
-              d.append(n);
+              s.nodes.length > 1 && t < s.nodes.length - 1 && n.append($('<div>').addClass('option-connector')),
+              d.append(n));
           }),
             t.append(d),
-            n < a.length - 1 &&
-            t.append($("<div>").addClass("route-connector"));
+            n < a.length - 1 && t.append($('<div>').addClass('route-connector')));
         }),
         t
       );
     }
     function pa() {
       if (!W) return;
-      if (G || !L)
-        return void (W.innerHTML =
-          '<div class="loading">正在加载 MVU 数据...</div>');
+      if (G || !L) return void (W.innerHTML = '<div class="loading">正在加载 MVU 数据...</div>');
       const a = Y(),
         e = (function () {
           const a = Y();
@@ -1097,345 +905,299 @@
         })(),
         t = (function () {
           if (!L) return [];
-          const a = n().get(L.stat_data, "玩家数据.持有技能") || {};
+          const a = n().get(L.stat_data, '玩家数据.持有技能') || {};
           return Object.entries(a)
-            .filter(([a]) => "$meta" !== a)
+            .filter(([a]) => '$meta' !== a)
             .map(([a, e]) => {
               const t = e;
               return {
                 name: a,
-                charge: Number(Q(n().get(t, "当前充能"), 0)),
-                chargeRequired: Math.max(
-                  1,
-                  Number(Q(n().get(t, "充能需求"), 1))
-                ),
-                desc: Q(n().get(t, "描述"), ""),
+                charge: Number(Q(n().get(t, '当前充能'), 0)),
+                chargeRequired: Math.max(1, Number(Q(n().get(t, '充能需求'), 1))),
+                desc: Q(n().get(t, '描述'), ''),
               };
             });
         })(),
         s = (function () {
           if (!L) return [];
-          const a = n().get(L.stat_data, "玩家数据.持有藏品");
+          const a = n().get(L.stat_data, '玩家数据.持有藏品');
           if (!a) return [];
           const e = Array.isArray(a) ? a : [];
           return Array.isArray(e)
             ? e
-              .filter((a) => a && "object" == typeof a)
-              .map((a) => {
-                const e = n().get(a, "名称"),
-                  t = n().get(a, "描述");
-                return { name: Q(e, ""), desc: Q(t, "") };
-              })
-              .filter((a) => a.name)
+                .filter(a => a && 'object' == typeof a)
+                .map(a => {
+                  const e = n().get(a, '名称'),
+                    t = n().get(a, '描述');
+                  return { name: Q(e, ''), desc: Q(t, '') };
+                })
+                .filter(a => a.name)
             : [];
         })(),
         d = (function () {
           if (!L) return [];
-          const a = n().get(L.stat_data, "角色数据") || {},
-            e = n().get(L.stat_data, "探索进度.在场角色"),
+          const a = n().get(L.stat_data, '角色数据') || {},
+            e = n().get(L.stat_data, '探索进度.在场角色'),
             t = Array.isArray(e) ? e : [];
           return Object.entries(a)
-            .filter(([a]) => "$meta" !== a && "$template" !== a)
+            .filter(([a]) => '$meta' !== a && '$template' !== a)
             .filter(([a]) => t.includes(a))
             .map(([a, e]) => {
               const t = e;
               return {
                 name: a,
-                status: Q(n().get(t, "状态"), "未知"),
-                race: Q(n().get(t, "種族"), "未知"),
-                personality: Q(n().get(t, "目前人格"), "未知"),
-                triggerword: Q(n().get(t, "人格切換詞"), ""),
-                corruption: Number(Q(n().get(t, "堕落程度"), 0)),
-                clothing: Q(n().get(t, "服装"), "未描述"),
-                characterStatus: Q(n().get(t, "人物状态"), "暂无状态描述"),
-                bodyModification: Q(n().get(t, "身體改造"), {}),
-                HoldItem: Q(n().get(t, "持有物品"), {}),
-                armor: Number(Q(n().get(t, "护甲值"), 0)),
-                relatedAnimal: Q(n().get(t, "有關母畜"), {}),
-                leavePoint: Q(n().get(t, "離隊地點"), {}),
-                brand: Q(n().get(t, "母畜烙印"), {}),
+                status: Q(n().get(t, '状态'), '未知'),
+                race: Q(n().get(t, '種族'), '未知'),
+                personality: Q(n().get(t, '目前人格'), '未知'),
+                triggerword: Q(n().get(t, '人格切換詞'), ''),
+                corruption: Number(Q(n().get(t, '堕落程度'), 0)),
+                clothing: Q(n().get(t, '服装'), '未描述'),
+                characterStatus: Q(n().get(t, '人物状态'), '暂无状态描述'),
+                bodyModification: Q(n().get(t, '身體改造'), {}),
+                HoldItem: Q(n().get(t, '持有物品'), {}),
+                armor: Number(Q(n().get(t, '护甲值'), 0)),
+                relatedAnimal: Q(n().get(t, '有關母畜'), {}),
+                leavePoint: Q(n().get(t, '離隊地點'), {}),
+                brand: Q(n().get(t, '母畜烙印'), {}),
               };
             });
         })(),
         i = (function () {
           if (!L) return [];
-          const a = n().get(L.stat_data, "商店数据.商品列表") || {};
+          const a = n().get(L.stat_data, '商店数据.商品列表') || {};
           return Object.keys(a)
-            .sort(
-              (a, e) =>
-                Number(a.replace("商品", "")) - Number(e.replace("商品", ""))
-            )
-            .map((e) => {
+            .sort((a, e) => Number(a.replace('商品', '')) - Number(e.replace('商品', '')))
+            .map(e => {
               const t = a[e],
                 s = Array.isArray(t) ? t[0] : t,
-                n = Array.isArray(t) ? t[1] : "",
-                d = s?.名称 || "待刷新";
+                n = Array.isArray(t) ? t[1] : '',
+                d = s?.名称 || '待刷新';
               return {
                 key: e,
                 item: s || null,
                 slotDesc: n,
-                isEmpty: "待刷新" === d,
-                isPurchased: "string" == typeof d && d.includes("已购买"),
+                isEmpty: '待刷新' === d,
+                isPurchased: 'string' == typeof d && d.includes('已购买'),
                 displayName: d,
               };
             });
         })(),
         items = (function () {
           if (!L) return [];
-          const raw = n().get(L.stat_data, "玩家数据.持有道具");
+          const raw = n().get(L.stat_data, '玩家数据.持有道具');
           if (!raw) return [];
           const list = Array.isArray(raw) ? raw : [];
           return list
-            .filter((i) => i && "object" == typeof i)
-            .map((i) => {
+            .filter(i => i && 'object' == typeof i)
+            .map(i => {
               return {
-                name: Q(n().get(i, "名称"), ""),
-                desc: Q(n().get(i, "描述"), ""),
-                effect: Q(n().get(i, "效果"), ""),
-                count: Number(Q(n().get(i, "數量"), 0)),
+                name: Q(n().get(i, '名称'), ''),
+                desc: Q(n().get(i, '描述'), ''),
+                effect: Q(n().get(i, '效果'), ''),
+                count: Number(Q(n().get(i, '數量'), 0)),
               };
             })
-            .filter((i) => i.name);
+            .filter(i => i.name);
         })(),
         buffs = (function () {
           if (!L) return [];
-          const raw = n().get(L.stat_data, "玩家数据.持有增益");
+          const raw = n().get(L.stat_data, '玩家数据.持有增益');
           if (!raw) return [];
           const list = Array.isArray(raw) ? raw : [];
           return list
-            .filter((i) => i && "object" == typeof i)
-            .map((i) => {
+            .filter(i => i && 'object' == typeof i)
+            .map(i => {
               return {
-                name: Q(n().get(i, "名称"), ""),
-                desc: Q(n().get(i, "描述"), ""),
+                name: Q(n().get(i, '名称'), ''),
+                desc: Q(n().get(i, '描述'), ''),
               };
             })
-            .filter((i) => i.name);
+            .filter(i => i.name);
         })(),
-        l = $("<div>").addClass("ark-root"),
-        o = $("<div>").addClass("route-map-panel"),
-        c = $("<div>").addClass("panel-header");
-      c.append(
-        $("<div>").addClass("panel-title").text(`第 ${a.layer} 层路线图`)
-      ),
-        c.append($("<div>").addClass("panel-sub").text(`当前节点: ${a.stage}`));
-      const r = $("<div>").addClass("route-map-container");
-      r.append(ra()), o.append(c).append(r), l.append(o);
-      const p = $("<div>").addClass("top-stack"),
-        u = $("<div>").addClass("progress-card"),
-        f = $("<div>").addClass("card-title-row");
-      f.append($("<div>").addClass("card-title").text("生命状态"));
-      const v = $("<div>").addClass("info-row");
-      a.squad &&
-        "无" !== a.squad &&
+        l = $('<div>').addClass('ark-root'),
+        o = $('<div>').addClass('route-map-panel'),
+        c = $('<div>').addClass('panel-header');
+      (c.append($('<div>').addClass('panel-title').text(`第 ${a.layer} 层路线图`)),
+        c.append($('<div>').addClass('panel-sub').text(`当前节点: ${a.stage}`)));
+      const r = $('<div>').addClass('route-map-container');
+      (r.append(ra()), o.append(c).append(r), l.append(o));
+      const p = $('<div>').addClass('top-stack'),
+        u = $('<div>').addClass('progress-card'),
+        f = $('<div>').addClass('card-title-row');
+      f.append($('<div>').addClass('card-title').text('生命状态'));
+      const v = $('<div>').addClass('info-row');
+      (a.squad &&
+        '无' !== a.squad &&
         v.append(
-          $("<div>")
-            .addClass("squad-display")
-            .html(
-              `<span class="squad-label">当前分队</span><span class="squad-name">${a.squad}</span>`
-            )
+          $('<div>')
+            .addClass('squad-display')
+            .html(`<span class="squad-label">当前分队</span><span class="squad-name">${a.squad}</span>`),
         ),
         a.difficulty &&
-        "无" !== a.difficulty &&
-        v.append(
-          $("<div>")
-            .addClass("difficulty-display")
-            .html(
-              `<span class="difficulty-label">难度</span><span class="difficulty-name">${a.difficulty}</span>`
-            )
-        ),
-        "异想天开分队" === a.squad &&
-        a.fetishTerm &&
-        v.append(
-          $("<div>")
-            .addClass("fetish-term-display")
-            .html(
-              `<span class="fetish-term-label">世界性癖</span><span class="fetish-term-name">${a.fetishTerm}</span>`
-            )
-        ),
+          '无' !== a.difficulty &&
+          v.append(
+            $('<div>')
+              .addClass('difficulty-display')
+              .html(`<span class="difficulty-label">难度</span><span class="difficulty-name">${a.difficulty}</span>`),
+          ),
+        '异想天开分队' === a.squad &&
+          a.fetishTerm &&
+          v.append(
+            $('<div>')
+              .addClass('fetish-term-display')
+              .html(
+                `<span class="fetish-term-label">世界性癖</span><span class="fetish-term-name">${a.fetishTerm}</span>`,
+              ),
+          ),
         v.children().length > 0 && f.append(v),
-        u.append(f);
-      const g = $("<div>").addClass("hp-line"),
-        m = $("<div>").addClass("hp-label");
-      m.append($("<span>").addClass("label").text("体力值")),
-        m.append($("<span>").addClass("value").text(`${a.hp}`));
-      const C = $("<div>").addClass("hp-bar");
-      C.append($("<div>").addClass("hp-bar-fill").css("width", `${e}%`)),
-        g.append(m).append(C);
-      const b = $("<div>").addClass("resource-grid");
-      b.append(
-        $("<div>")
-          .addClass("resource-pill primary")
-          .html(
-            '<span class="pill-label">淫欲值</span><span class="pill-value">' +
-            a.lust +
-            "</span>"
-          ),
-        $("<div>")
-          .addClass("resource-pill highlight")
-          .html(
-            '<span class="pill-label">精液配给</span><span class="pill-value">' +
-            a.semen +
-            "</span>"
-          ),
-        $("<div>")
-          .addClass("resource-pill ghost")
-          .html(
-            '<span class="pill-label">当前层数</span><span class="pill-value">' +
-            a.layer +
-            "</span>"
-          ),
-        $("<div>")
-          .addClass("resource-pill ghost")
-          .html(
-            '<span class="pill-label">当前关卡</span><span class="pill-value">' +
-            a.stage +
-            "</span>"
-          )
+        u.append(f));
+      const g = $('<div>').addClass('hp-line'),
+        m = $('<div>').addClass('hp-label');
+      (m.append($('<span>').addClass('label').text('体力值')), m.append($('<span>').addClass('value').text(`${a.hp}`)));
+      const C = $('<div>').addClass('hp-bar');
+      (C.append($('<div>').addClass('hp-bar-fill').css('width', `${e}%`)), g.append(m).append(C));
+      const b = $('<div>').addClass('resource-grid');
+      (b.append(
+        $('<div>')
+          .addClass('resource-pill primary')
+          .html('<span class="pill-label">淫欲值</span><span class="pill-value">' + a.lust + '</span>'),
+        $('<div>')
+          .addClass('resource-pill highlight')
+          .html('<span class="pill-label">精液配给</span><span class="pill-value">' + a.semen + '</span>'),
+        $('<div>')
+          .addClass('resource-pill ghost')
+          .html('<span class="pill-label">当前层数</span><span class="pill-value">' + a.layer + '</span>'),
+        $('<div>')
+          .addClass('resource-pill ghost')
+          .html('<span class="pill-label">当前关卡</span><span class="pill-value">' + a.stage + '</span>'),
       ),
-        u.append(g).append(b);
+        u.append(g).append(b));
 
       // Player Buffs
       if (buffs.length > 0) {
-        const buffGrid = $("<div>").addClass("resource-grid");
-        buffs.forEach((buff) => {
+        const buffGrid = $('<div>').addClass('resource-grid');
+        buffs.forEach(buff => {
           buffGrid.append(
-            $("<div>")
-              .addClass("resource-pill player-buff")
-              .html(
-                `<span class="pill-label">${buff.name
-                }</span><span class="pill-desc">${buff.desc || ""}</span>`
-              )
+            $('<div>')
+              .addClass('resource-pill player-buff')
+              .html(`<span class="pill-label">${buff.name}</span><span class="pill-desc">${buff.desc || ''}</span>`),
           );
         });
         u.append(buffGrid);
       }
       p.append(u);
-      const y = $("<div>").addClass("panel"),
-        h = $("<div>").addClass("panel-header");
-      h.append($("<div>").addClass("panel-title").text("技能准备"))
-        .append(
-          $("<div>")
-            .addClass("panel-actions")
-            .append(
-              $("<button>")
-                .addClass("ghost-btn")
-                .text(isSkillsExpanded ? "折叠" : "展开")
-                .on("click", () => {
-                  isSkillsExpanded = !isSkillsExpanded;
-                  pa();
-                })
-            )
-        );
+      const y = $('<div>').addClass('panel'),
+        h = $('<div>').addClass('panel-header');
+      h.append($('<div>').addClass('panel-title').text('技能准备')).append(
+        $('<div>')
+          .addClass('panel-actions')
+          .append(
+            $('<button>')
+              .addClass('ghost-btn')
+              .text(isSkillsExpanded ? '折叠' : '展开')
+              .on('click', () => {
+                isSkillsExpanded = !isSkillsExpanded;
+                pa();
+              }),
+          ),
+      );
       y.append(h);
 
       if (isSkillsExpanded) {
-        const x = $("<div>").addClass("skills-grid");
+        const x = $('<div>').addClass('skills-grid');
         0 === t.length
-          ? x.append($("<div>").addClass("empty").text("暂无技能"))
-          : t.forEach((a) => {
-            const e = a.charge >= a.chargeRequired,
-              t = $("<button>")
-                .addClass("skill-btn")
-                .toggleClass("disabled", !e)
-                .on("click", () => {
-                  e && ia(a.name);
-                });
-            t.append($("<div>").addClass("skill-name").text(a.name)),
-              t.append(
-                $("<div>")
-                  .addClass("skill-desc")
-                  .text(a.desc || "无描述")
-              );
-            const s = $("<div>").addClass("skill-footer");
-            s.append(
-              $("<span>").text(`充能: ${a.charge} / ${a.chargeRequired}`)
-            ),
-              a.charge < a.chargeRequired
-                ? s.append($("<span>").addClass("cd-tag").text("未就绪"))
-                : s.append($("<span>").addClass("ready-tag").text("就绪")),
-              t.append(s),
-              x.append(t);
-          });
+          ? x.append($('<div>').addClass('empty').text('暂无技能'))
+          : t.forEach(a => {
+              const e = a.charge >= a.chargeRequired,
+                t = $('<button>')
+                  .addClass('skill-btn')
+                  .toggleClass('disabled', !e)
+                  .on('click', () => {
+                    e && ia(a.name);
+                  });
+              (t.append($('<div>').addClass('skill-name').text(a.name)),
+                t.append(
+                  $('<div>')
+                    .addClass('skill-desc')
+                    .text(a.desc || '无描述'),
+                ));
+              const s = $('<div>').addClass('skill-footer');
+              (s.append($('<span>').text(`充能: ${a.charge} / ${a.chargeRequired}`)),
+                a.charge < a.chargeRequired
+                  ? s.append($('<span>').addClass('cd-tag').text('未就绪'))
+                  : s.append($('<span>').addClass('ready-tag').text('就绪')),
+                t.append(s),
+                x.append(t));
+            });
         y.append(x);
       }
-      p.append(y), l.append(p);
-      const E = $("<div>").addClass("panel wide split-container");
+      (p.append(y), l.append(p));
+      const E = $('<div>').addClass('panel wide split-container');
       E.append(
-        $("<div>")
-          .addClass("panel-header split-header")
-          .append($("<div>").addClass("panel-title").text("藏品-道具 列表"))
+        $('<div>')
+          .addClass('panel-header split-header')
+          .append($('<div>').addClass('panel-title').text('藏品-道具 列表'))
           .append(
-            $("<div>")
-              .addClass("panel-actions")
+            $('<div>')
+              .addClass('panel-actions')
               .append(
-                $("<button>")
-                  .addClass("ghost-btn")
-                  .text(isCollListExpanded ? "折叠" : "展开")
-                  .on("click", () => {
+                $('<button>')
+                  .addClass('ghost-btn')
+                  .text(isCollListExpanded ? '折叠' : '展开')
+                  .on('click', () => {
                     isCollListExpanded = !isCollListExpanded;
                     pa();
-                  })
-              )
-          )
+                  }),
+              ),
+          ),
       );
 
       if (isCollListExpanded) {
-        const splitCollections = $("<div>").addClass("panel split-collections");
+        const splitCollections = $('<div>').addClass('panel split-collections');
         splitCollections.append(
-          $("<div>")
-            .addClass("panel-header")
-            .append($("<div>").addClass("panel-title").text("藏品列表"))
+          $('<div>').addClass('panel-header').append($('<div>').addClass('panel-title').text('藏品列表')),
         );
-        const M = $("<div>").addClass("collections-grid");
+        const M = $('<div>').addClass('collections-grid');
         0 === s.length
-          ? M.append($("<div>").addClass("empty").text("暂无藏品"))
-          : s.forEach((a) => {
-            const e = $("<div>").addClass("collection-card");
-            e.append($("<div>").addClass("collection-name").text(a.name)),
-              e.append(
-                $("<div>")
-                  .addClass("collection-desc")
-                  .text(a.desc || "无描述")
-              ),
-              M.append(e);
-          });
+          ? M.append($('<div>').addClass('empty').text('暂无藏品'))
+          : s.forEach(a => {
+              const e = $('<div>').addClass('collection-card');
+              (e.append($('<div>').addClass('collection-name').text(a.name)),
+                e.append(
+                  $('<div>')
+                    .addClass('collection-desc')
+                    .text(a.desc || '无描述'),
+                ),
+                M.append(e));
+            });
         splitCollections.append(M);
         E.append(splitCollections);
 
-        const splitItems = $("<div>").addClass("panel split-items");
+        const splitItems = $('<div>').addClass('panel split-items');
         splitItems.append(
-          $("<div>")
-            .addClass("panel-header")
-            .append($("<div>").addClass("panel-title").text("道具列表"))
+          $('<div>').addClass('panel-header').append($('<div>').addClass('panel-title').text('道具列表')),
         );
-        const itemGrid = $("<div>").addClass("items-grid");
+        const itemGrid = $('<div>').addClass('items-grid');
         if (items.length === 0) {
-          itemGrid.append($("<div>").addClass("empty").text("暂无道具"));
+          itemGrid.append($('<div>').addClass('empty').text('暂无道具'));
         } else {
-          items.forEach((item) => {
-            const itemCard = $("<div>").addClass("item-card");
-            const nameRow = $("<div>")
-              .addClass("item-list-name")
-              .text(item.name);
+          items.forEach(item => {
+            const itemCard = $('<div>').addClass('item-card');
+            const nameRow = $('<div>').addClass('item-list-name').text(item.name);
             if (item.count > 0) {
-              nameRow.append(
-                $("<div>")
-                  .addClass("item-list-quantity")
-                  .text(`x${item.count}`)
-              );
+              nameRow.append($('<div>').addClass('item-list-quantity').text(`x${item.count}`));
             }
             itemCard.append(nameRow);
 
-            let fullDesc = item.desc || "";
+            let fullDesc = item.desc || '';
             if (item.effect) {
               fullDesc = fullDesc ? `${fullDesc}、${item.effect}` : item.effect;
             }
 
             itemCard.append(
-              $("<div>")
-                .addClass("item-list-desc")
-                .text(fullDesc || "无描述")
+              $('<div>')
+                .addClass('item-list-desc')
+                .text(fullDesc || '无描述'),
             );
             itemGrid.append(itemCard);
           });
@@ -1446,354 +1208,309 @@
 
       l.append(E);
 
-      const w = $("<div>").addClass("panel wide");
+      const w = $('<div>').addClass('panel wide');
       w.append(
-        $("<div>")
-          .addClass("panel-header")
-          .append($("<div>").addClass("panel-title").text("角色状态"))
+        $('<div>')
+          .addClass('panel-header')
+          .append($('<div>').addClass('panel-title').text('角色状态'))
           .append(
-            $("<div>")
-              .addClass("panel-actions")
+            $('<div>')
+              .addClass('panel-actions')
               .append(
-                $("<button>")
-                  .addClass("ghost-btn")
-                  .text(isCharStatusExpanded ? "折叠" : "展开")
-                  .on("click", () => {
+                $('<button>')
+                  .addClass('ghost-btn')
+                  .text(isCharStatusExpanded ? '折叠' : '展开')
+                  .on('click', () => {
                     isCharStatusExpanded = !isCharStatusExpanded;
                     pa();
-                  })
-              )
-          )
+                  }),
+              ),
+          ),
       );
 
       if (isCharStatusExpanded) {
-        const k = $("<div>").addClass("character-grid");
+        const k = $('<div>').addClass('character-grid');
         0 === d.length
-          ? k.append($("<div>").addClass("empty").text("暂无角色状态"))
-          : d.forEach((a) => {
-            const e = $("<div>")
-              .addClass("char-card")
-              .on("click", () => ((H = a), void pa()));
-            const t = $("<div>").addClass("char-header");
-            t.append(
-              $("<span>")
-                .addClass("name")
-                .text(a.name)
-                .append(
-                  $("<span>").addClass("trigger-word").text(a.triggerword)
-                )
-            );
-            const sub = $("<div>").addClass("dialog-sub");
-            sub.append(
-              $("<span>")
-                .addClass("badge")
-                .toggleClass("corrupted", "堕落" === a.status)
-                .toggleClass("hostile", "敌对" === a.status)
-                .toggleClass("promoted", "母畜" === a.status)
-                .toggleClass("neutral", "中立" === a.status)
-                .text(a.status || "未知")
-            );
-            if (a.race) {
-              sub.append($("<span>").addClass("badge race").text(a.race));
-            }
-            if (a.personality) {
-              let pClass = "badge";
-              if (
-                (a.personality || "").startsWith("母畜") ||
-                (a.personality || "").startsWith("母畜") 
-              )
-                pClass += " promoted";
-              else if (
-                (a.personality || "").startsWith("堕落") ||
-                (a.personality || "").startsWith("墮落")
-              )
-                pClass += " corrupted";
-              else pClass += " neutral";
-              sub.append($("<span>").addClass(pClass).text(a.personality));
-            }
-            t.append(sub);
-            const n = $("<div>").addClass("char-body");
-            n.append(
-              $("<div>")
-                .addClass("clothing-line")
-                .html(
-                  `<span class="label">服装</span><span class="value">${a.clothing}</span>`
-                )
-            );
-            const d = $("<div>").addClass("stat-line");
-            d.append($("<span>").addClass("label").text("堕落度"));
-            const i = $("<div>").addClass("bar");
-            i.append(
-              $("<div>")
-                .addClass("fill orange")
-                .css("width", `${Math.min(100, a.corruption)}%`)
-            ),
-              d.append(i),
-              d.append(
-                $("<span>").addClass("value").text(`${a.corruption}/100`)
+          ? k.append($('<div>').addClass('empty').text('暂无角色状态'))
+          : d.forEach(a => {
+              const e = $('<div>')
+                .addClass('char-card')
+                .on('click', () => ((H = a), void pa()));
+              const t = $('<div>').addClass('char-header');
+              t.append(
+                $('<span>')
+                  .addClass('name')
+                  .text(a.name)
+                  .append($('<span>').addClass('trigger-word').text(a.triggerword)),
+              );
+              const sub = $('<div>').addClass('dialog-sub');
+              sub.append(
+                $('<span>')
+                  .addClass('badge')
+                  .toggleClass('corrupted', '堕落' === a.status)
+                  .toggleClass('hostile', '敌对' === a.status)
+                  .toggleClass('promoted', '母畜' === a.status)
+                  .toggleClass('neutral', '中立' === a.status)
+                  .text(a.status || '未知'),
+              );
+              if (a.race) {
+                sub.append($('<span>').addClass('badge race').text(a.race));
+              }
+              if (a.personality) {
+                let pClass = 'badge';
+                if ((a.personality || '').startsWith('母畜') || (a.personality || '').startsWith('母畜'))
+                  pClass += ' promoted';
+                else if ((a.personality || '').startsWith('堕落') || (a.personality || '').startsWith('墮落'))
+                  pClass += ' corrupted';
+                else pClass += ' neutral';
+                sub.append($('<span>').addClass(pClass).text(a.personality));
+              }
+              t.append(sub);
+              const n = $('<div>').addClass('char-body');
+              n.append(
+                $('<div>')
+                  .addClass('clothing-line')
+                  .html(`<span class="label">服装</span><span class="value">${a.clothing}</span>`),
+              );
+              const d = $('<div>').addClass('stat-line');
+              d.append($('<span>').addClass('label').text('堕落度'));
+              const i = $('<div>').addClass('bar');
+              (i.append(
+                $('<div>')
+                  .addClass('fill orange')
+                  .css('width', `${Math.min(100, a.corruption)}%`),
               ),
-              n.append(d);
-            const l = Z(Y().difficulty);
-            if (l > 0) {
-              const e = $("<div>").addClass("stat-line");
-              e.append($("<span>").addClass("label").text("理智护甲"));
-              const t = $("<div>").addClass("bar"),
-                s = l > 0 ? Math.min(100, Math.round((a.armor / l) * 100)) : 0;
-              t.append($("<div>").addClass("fill blue").css("width", `${s}%`)),
-                e.append(t),
-                e.append($("<span>").addClass("value").text(`${a.armor}/${l}`)),
-                n.append(e);
-            }
-            e.append(t).append(n), k.append(e);
-          });
+                d.append(i),
+                d.append($('<span>').addClass('value').text(`${a.corruption}/100`)),
+                n.append(d));
+              const l = Z(Y().difficulty);
+              if (l > 0) {
+                const e = $('<div>').addClass('stat-line');
+                e.append($('<span>').addClass('label').text('理智护甲'));
+                const t = $('<div>').addClass('bar'),
+                  s = l > 0 ? Math.min(100, Math.round((a.armor / l) * 100)) : 0;
+                (t.append($('<div>').addClass('fill blue').css('width', `${s}%`)),
+                  e.append(t),
+                  e.append($('<span>').addClass('value').text(`${a.armor}/${l}`)),
+                  n.append(e));
+              }
+              (e.append(t).append(n), k.append(e));
+            });
         w.append(k);
       }
       l.append(w);
-      const D = $("<div>").addClass("panel wide"),
-        A = $("<div>").addClass("panel-header"),
-        N =
-          J.length > 0
-            ? `使用精液配给购买补给（待购买：${J.length}件）`
-            : "使用精液配给购买补给";
-      A.append(
-        $("<div>").html(
-          `<div class="panel-title">黑市商店</div><div class="panel-sub">${N}</div>`
-        )
-      );
-      const S = $("<div>").addClass("panel-actions");
+      const D = $('<div>').addClass('panel wide'),
+        A = $('<div>').addClass('panel-header'),
+        N = J.length > 0 ? `使用精液配给购买补给（待购买：${J.length}件）` : '使用精液配给购买补给';
+      A.append($('<div>').html(`<div class="panel-title">黑市商店</div><div class="panel-sub">${N}</div>`));
+      const S = $('<div>').addClass('panel-actions');
       if (
         (J.length > 0 &&
-          (S.append(
-            $("<button>")
-              .addClass("confirm-btn")
-              .text(`完成购买(${J.length})`)
-              .on("click", la)
-          ),
-            S.append(
-              $("<button>").addClass("ghost-btn").text("清空").on("click", oa)
-            )),
-          S.append(
-            $("<button>")
-              .addClass("ghost-btn")
-              .text(U ? "折叠" : "展开")
-              .on("click", () => {
-                (U = !U), pa();
-              })
-          ),
-          A.append(S),
-          D.append(A),
-          U)
+          (S.append($('<button>').addClass('confirm-btn').text(`完成购买(${J.length})`).on('click', la)),
+          S.append($('<button>').addClass('ghost-btn').text('清空').on('click', oa))),
+        S.append(
+          $('<button>')
+            .addClass('ghost-btn')
+            .text(U ? '折叠' : '展开')
+            .on('click', () => {
+              ((U = !U), pa());
+            }),
+        ),
+        A.append(S),
+        D.append(A),
+        U)
       ) {
-        const a = $("<div>").addClass("shop-grid");
-        i.forEach((e) => {
-          const t = $("<div>")
-            .addClass("shop-card")
-            .toggleClass("disabled", e.isEmpty || e.isPurchased)
-            .on(
-              "click",
-              () =>
-                !e.isEmpty &&
-                !e.isPurchased &&
-                (function (a) {
-                  (j = a), pa();
-                })(e)
-            ),
-            s = $("<div>").addClass("card-top");
-          s.append($("<span>").addClass("item-name").text(e.displayName)),
+        const a = $('<div>').addClass('shop-grid');
+        (i.forEach(e => {
+          const t = $('<div>')
+              .addClass('shop-card')
+              .toggleClass('disabled', e.isEmpty || e.isPurchased)
+              .on(
+                'click',
+                () =>
+                  !e.isEmpty &&
+                  !e.isPurchased &&
+                  (function (a) {
+                    ((j = a), pa());
+                  })(e),
+              ),
+            s = $('<div>').addClass('card-top');
+          (s.append($('<span>').addClass('item-name').text(e.displayName)),
             s.append(
-              $("<span>")
-                .addClass("tag")
-                .text(e.item?.类型 || "未知")
-            );
-          const n = $("<div>").addClass("price-line");
-          n.append($("<span>").addClass("label").text("价格")),
+              $('<span>')
+                .addClass('tag')
+                .text(e.item?.类型 || '未知'),
+            ));
+          const n = $('<div>').addClass('price-line');
+          (n.append($('<span>').addClass('label').text('价格')),
             n.append(
-              $("<span>")
-                .addClass("value")
-                .text(String(e.item?.价格 ?? "--"))
+              $('<span>')
+                .addClass('value')
+                .text(String(e.item?.价格 ?? '--')),
             ),
             t
               .append(s)
               .append(n)
               .append(
-                $("<div>")
-                  .addClass("desc")
-                  .text(e.item?.描述 || e.slotDesc || "暂无描述")
+                $('<div>')
+                  .addClass('desc')
+                  .text(e.item?.描述 || e.slotDesc || '暂无描述'),
               ),
-            a.append(t);
+            a.append(t));
         }),
-          D.append(a);
+          D.append(a));
       }
       if ((l.append(D), j)) {
-        const a = $("<div>").addClass("dialog-mask").on("click", na),
-          e = $("<div>")
-            .addClass("dialog")
-            .on("click", (a) => a.stopPropagation()),
-          t = $("<div>").addClass("dialog-header");
-        t.append(
-          $("<div>").html(
-            `<div class="dialog-title">${j.displayName
-            }</div><div class="dialog-sub">${j.item?.类型 || ""}</div>`
-          )
+        const a = $('<div>').addClass('dialog-mask').on('click', na),
+          e = $('<div>')
+            .addClass('dialog')
+            .on('click', a => a.stopPropagation()),
+          t = $('<div>').addClass('dialog-header');
+        (t.append(
+          $('<div>').html(
+            `<div class="dialog-title">${j.displayName}</div><div class="dialog-sub">${j.item?.类型 || ''}</div>`,
+          ),
         ),
-          t.append($("<button>").addClass("close").text("×").on("click", na));
-        const s = $("<div>").addClass("dialog-body");
-        s.append(
-          $("<div>")
-            .addClass("dialog-desc")
-            .text(j.item?.描述 || "暂无描述")
+          t.append($('<button>').addClass('close').text('×').on('click', na)));
+        const s = $('<div>').addClass('dialog-body');
+        (s.append(
+          $('<div>')
+            .addClass('dialog-desc')
+            .text(j.item?.描述 || '暂无描述'),
         ),
           s.append(
-            $("<div>")
-              .addClass("dialog-price")
-              .html(`价格：<span>${j.item?.价格 ?? "--"}</span>`)
-          );
-        const n = $("<div>").addClass("dialog-actions");
-        n.append(
-          $("<button>").addClass("ghost-btn").text("取消").on("click", na)
-        ),
+            $('<div>')
+              .addClass('dialog-price')
+              .html(`价格：<span>${j.item?.价格 ?? '--'}</span>`),
+          ));
+        const n = $('<div>').addClass('dialog-actions');
+        (n.append($('<button>').addClass('ghost-btn').text('取消').on('click', na)),
           n.append(
-            $("<button>")
-              .addClass("confirm-btn")
+            $('<button>')
+              .addClass('confirm-btn')
               .prop(
-                "disabled",
+                'disabled',
                 !(function (a) {
                   if (!a || !a.item) return !1;
                   const e = Number(a.item.价格 || 0);
                   return Y().semen >= e;
-                })(j)
+                })(j),
               )
-              .text("购买")
-              .on("click", () => {
+              .text('购买')
+              .on('click', () => {
                 j &&
                   (function (a) {
                     if (!a.item) return;
                     const e = Number(a.item.价格 || 0);
                     if (Y().semen < e) return;
-                    const t = a.item.名称 || "未知物品";
-                    J.push(t), na(), pa();
+                    const t = a.item.名称 || '未知物品';
+                    (J.push(t), na(), pa());
                   })(j);
-              })
+              }),
           ),
           e.append(t).append(s).append(n),
           a.append(e),
-          l.append(a);
+          l.append(a));
       }
       if (H) {
-        const a = $("<div>").addClass("dialog-mask").on("click", da),
-          e = $("<div>")
-            .addClass("dialog character-dialog")
-            .on("click", (a) => a.stopPropagation()),
-          t = $("<div>").addClass("dialog-header"),
-          s = $("<div>").addClass("dialog-header-content");
+        const a = $('<div>').addClass('dialog-mask').on('click', da),
+          e = $('<div>')
+            .addClass('dialog character-dialog')
+            .on('click', a => a.stopPropagation()),
+          t = $('<div>').addClass('dialog-header'),
+          s = $('<div>').addClass('dialog-header-content');
         s.append(
-          $("<div>")
-            .addClass("dialog-title")
+          $('<div>')
+            .addClass('dialog-title')
             .text(H.name)
-            .append($("<span>").addClass("trigger-word").text(H.triggerword))
-          .append($("<span>").addClass("promoted-tattoo").text(H.brand.描述 || "").append(H.brand.描述 ? "(" : "").append(H.brand.位置 || "").append(H.brand.描述 ? ")" : ""))
+            .append($('<span>').addClass('trigger-word').text(H.triggerword))
+            .append(
+              $('<span>')
+                .addClass('promoted-tattoo')
+                .text(H.brand.描述 || '')
+                .append(H.brand.描述 ? '(' : '')
+                .append(H.brand.位置 || '')
+                .append(H.brand.描述 ? ')' : ''),
+            ),
         );
-        const n = $("<div>").addClass("dialog-sub");
+        const n = $('<div>').addClass('dialog-sub');
         n.append(
-          $("<span>")
-            .addClass("badge")
-            .toggleClass("corrupted", "堕落" === H.status)
-            .toggleClass("hostile", "敌对" === H.status)
-            .toggleClass("promoted", "母畜" === H.status)
-            .toggleClass("neutral", "中立" === H.status)
-            .text(H.status || "未知")
+          $('<span>')
+            .addClass('badge')
+            .toggleClass('corrupted', '堕落' === H.status)
+            .toggleClass('hostile', '敌对' === H.status)
+            .toggleClass('promoted', '母畜' === H.status)
+            .toggleClass('neutral', '中立' === H.status)
+            .text(H.status || '未知'),
         );
-        H.race && n.append($("<span>").addClass("badge race").text(H.race));
+        H.race && n.append($('<span>').addClass('badge race').text(H.race));
         if (H.personality) {
-          let personalityClass = "badge";
-          if (
-            (H.personality || "").startsWith("母畜") ||
-            (H.personality || "").startsWith("母畜") 
-          )
-            personalityClass += " promoted";
-          else if (
-            (H.personality || "").startsWith("堕落") ||
-            (H.personality || "").startsWith("墮落")
-          )
-            personalityClass += " corrupted";
-          else personalityClass += " neutral"; // Default style
-          n.append($("<span>").addClass(personalityClass).text(H.personality));
+          let personalityClass = 'badge';
+          if ((H.personality || '').startsWith('母畜') || (H.personality || '').startsWith('母畜'))
+            personalityClass += ' promoted';
+          else if ((H.personality || '').startsWith('堕落') || (H.personality || '').startsWith('墮落'))
+            personalityClass += ' corrupted';
+          else personalityClass += ' neutral'; // Default style
+          n.append($('<span>').addClass(personalityClass).text(H.personality));
         }
-        s.append(n),
-          t.append(s),
-          t.append($("<button>").addClass("close").text("×").on("click", da));
-        const d = $("<div>").addClass("dialog-body"),
-          i = $("<div>").addClass("character-detail-section");
+        (s.append(n), t.append(s), t.append($('<button>').addClass('close').text('×').on('click', da)));
+        const d = $('<div>').addClass('dialog-body'),
+          i = $('<div>').addClass('character-detail-section');
         i.append(
-          $("<div>")
-            .addClass("detail-item")
-            .html(
-              `<span class="detail-label">服装</span><span class="detail-value">${H.clothing}</span>`
-            )
+          $('<div>')
+            .addClass('detail-item')
+            .html(`<span class="detail-label">服装</span><span class="detail-value">${H.clothing}</span>`),
         );
 
         // Items Held
         if (H.HoldItem && Object.keys(H.HoldItem).length > 0) {
-          const itemContainer = $("<div>").addClass("detail-item complexed");
-          itemContainer.append(
-            $("<span>").addClass("detail-label").text("持有物品")
-          );
+          const itemContainer = $('<div>').addClass('detail-item complexed');
+          itemContainer.append($('<span>').addClass('detail-label').text('持有物品'));
           Object.entries(H.HoldItem).forEach(([itemName, itemData]) => {
-            const itemType = itemData.物品種類 || "道具";
-            const badgeClass =
-              itemType === "藏品" ? "badge collections" : "badge items";
-            itemContainer.append(
-              $("<span>").addClass(badgeClass).text(itemName)
-            );
+            const itemType = itemData.物品種類 || '道具';
+            const badgeClass = itemType === '藏品' ? 'badge collections' : 'badge items';
+            itemContainer.append($('<span>').addClass(badgeClass).text(itemName));
           });
           i.append(itemContainer);
         }
 
-        const o = $("<div>").addClass("detail-item");
-        o.append($("<span>").addClass("detail-label").text("堕落度"));
-        const c = $("<div>").addClass("detail-bar-container"),
-          r = $("<div>").addClass("detail-bar");
-        r.append(
-          $("<div>")
-            .addClass("detail-bar-fill orange")
-            .css("width", `${Math.min(100, H.corruption)}%`)
+        const o = $('<div>').addClass('detail-item');
+        o.append($('<span>').addClass('detail-label').text('堕落度'));
+        const c = $('<div>').addClass('detail-bar-container'),
+          r = $('<div>').addClass('detail-bar');
+        (r.append(
+          $('<div>')
+            .addClass('detail-bar-fill orange')
+            .css('width', `${Math.min(100, H.corruption)}%`),
         ),
           c.append(r),
-          c.append(
-            $("<span>").addClass("detail-bar-value").text(`${H.corruption}/100`)
-          ),
+          c.append($('<span>').addClass('detail-bar-value').text(`${H.corruption}/100`)),
           o.append(c),
-          i.append(o);
+          i.append(o));
         const p = Y(),
           u = Z(p.difficulty);
         if (u > 0) {
-          const a = $("<div>").addClass("detail-item");
-          a.append($("<span>").addClass("detail-label").text("理智护甲"));
-          const e = $("<div>").addClass("detail-bar-container"),
-            t = $("<div>").addClass("detail-bar"),
+          const a = $('<div>').addClass('detail-item');
+          a.append($('<span>').addClass('detail-label').text('理智护甲'));
+          const e = $('<div>').addClass('detail-bar-container'),
+            t = $('<div>').addClass('detail-bar'),
             s = u > 0 ? Math.min(100, Math.round((H.armor / u) * 100)) : 0;
-          t.append(
-            $("<div>").addClass("detail-bar-fill blue").css("width", `${s}%`)
-          ),
+          (t.append($('<div>').addClass('detail-bar-fill blue').css('width', `${s}%`)),
             e.append(t),
-            e.append(
-              $("<span>").addClass("detail-bar-value").text(`${H.armor}/${u}`)
-            ),
+            e.append($('<span>').addClass('detail-bar-value').text(`${H.armor}/${u}`)),
             a.append(e),
-            i.append(a);
+            i.append(a));
         }
 
         // Mother Related
         if (H.relatedAnimal && Object.keys(H.relatedAnimal).length > 0) {
           const motherList = Object.entries(H.relatedAnimal)
             .map(([name, relation]) => `${name}(${relation})`)
-            .join("、");
+            .join('、');
           i.append(
-            $("<div>")
-              .addClass("detail-item")
-              .html(
-                `<span class="detail-label">有关母畜</span><span class="detail-value">${motherList}</span>`
-              )
+            $('<div>')
+              .addClass('detail-item')
+              .html(`<span class="detail-label">有关母畜</span><span class="detail-value">${motherList}</span>`),
           );
         }
 
@@ -1802,24 +1519,23 @@
         if (H.bodyModification && Object.keys(H.bodyModification).length > 0) {
           const modText = Object.entries(H.bodyModification)
             .map(([part, mod]) => `${part}有${mod}`)
-            .join("、");
+            .join('、');
           i.append(
-            $("<div>")
-              .addClass("detail-item full-width")
-              .html(
-                `<span class="detail-label">身体改造</span><div class="character-status-text">${modText}</div>`
-              )
+            $('<div>')
+              .addClass('detail-item full-width')
+              .html(`<span class="detail-label">身体改造</span><div class="character-status-text">${modText}</div>`),
           );
         }
 
         // Character Status
         i.append(
-          $("<div>")
-            .addClass("detail-item full-width")
+          $('<div>')
+            .addClass('detail-item full-width')
             .html(
-              `<span class="detail-label">人物状态</span><div class="character-status-text">${H.characterStatus || "暂无状态描述"
-              }</div>`
-            )
+              `<span class="detail-label">人物状态</span><div class="character-status-text">${
+                H.characterStatus || '暂无状态描述'
+              }</div>`,
+            ),
         );
 
         // Departure Location
@@ -1827,167 +1543,136 @@
           const layer = H.leavePoint.層數;
           const node = H.leavePoint.節點;
           i.append(
-            $("<div>")
-              .addClass("detail-item")
+            $('<div>')
+              .addClass('detail-item')
               .html(
-                `<span class="detail-label">离队地点</span><span class="detail-value">第${layer}层-节点${node}</span>`
-              )
+                `<span class="detail-label">离队地点</span><span class="detail-value">第${layer}层-节点${node}</span>`,
+              ),
           );
         }
 
-        if ("堕落" === H.status) {
-          const a = $("<div>").addClass(
-            "detail-item full-width promotion-section"
-          ),
-            e = $("<div>").addClass("promotion-info");
-          e.append($("<div>").addClass("promotion-label").text("晋升为母畜")),
-            e.append(
-              $("<div>").addClass("promotion-cost").text("消耗淫欲值: 6")
-            ),
-            e.append(
-              $("<div>").addClass("promotion-tip").text(`当前淫欲值: ${p.lust}`)
-            ),
+        if ('堕落' === H.status) {
+          const a = $('<div>').addClass('detail-item full-width promotion-section'),
+            e = $('<div>').addClass('promotion-info');
+          (e.append($('<div>').addClass('promotion-label').text('晋升为母畜')),
+            e.append($('<div>').addClass('promotion-cost').text('消耗淫欲值: 6')),
+            e.append($('<div>').addClass('promotion-tip').text(`当前淫欲值: ${p.lust}`)),
             a.append(e),
-            i.append(a);
+            i.append(a));
         }
         d.append(i);
-        const f = $("<div>").addClass("dialog-actions");
-        f.append(
-          $("<button>").addClass("ghost-btn").text("关闭").on("click", da)
-        ),
-          "堕落" === H.status &&
-          f.append(
-            $("<button>")
-              .addClass("confirm-btn")
-              .prop("disabled", p.lust < 6)
-              .text("晋升为母畜")
-              .on("click", sa)
-          ),
+        const f = $('<div>').addClass('dialog-actions');
+        (f.append($('<button>').addClass('ghost-btn').text('关闭').on('click', da)),
+          '堕落' === H.status &&
+            f.append(
+              $('<button>')
+                .addClass('confirm-btn')
+                .prop('disabled', p.lust < 6)
+                .text('晋升为母畜')
+                .on('click', sa),
+            ),
           e.append(t).append(d).append(f),
           a.append(e),
-          l.append(a);
+          l.append(a));
       }
       if (K) {
-        const e = $("<div>").addClass("dialog-mask").on("click", ea),
-          t = $("<div>")
-            .addClass("dialog node-dialog")
-            .on("click", (a) => a.stopPropagation()),
-          s = $("<div>").addClass("dialog-header");
-        s.append(
-          $("<div>").html(
+        const e = $('<div>').addClass('dialog-mask').on('click', ea),
+          t = $('<div>')
+            .addClass('dialog node-dialog')
+            .on('click', a => a.stopPropagation()),
+          s = $('<div>').addClass('dialog-header');
+        (s.append(
+          $('<div>').html(
             `<div class="dialog-title">节点 ${K.nodeNumber} - ${aa(
-              K.type
-            )}</div><div class="dialog-sub">关卡信息</div>`
-          )
+              K.type,
+            )}</div><div class="dialog-sub">关卡信息</div>`,
+          ),
         ),
-          s.append($("<button>").addClass("close").text("×").on("click", ea));
-        const n = $("<div>").addClass("dialog-body"),
-          d = $("<div>").addClass("node-data-content");
-        if (["作战", "紧急作战", "险路恶敌"].includes(K.type)) {
-          const a = $("<div>").addClass("node-info");
+          s.append($('<button>').addClass('close').text('×').on('click', ea)));
+        const n = $('<div>').addClass('dialog-body'),
+          d = $('<div>').addClass('node-data-content');
+        if (['作战', '紧急作战', '险路恶敌'].includes(K.type)) {
+          const a = $('<div>').addClass('node-info');
           if (K.combatData) {
-            const e = $("<div>").addClass("combat-info");
+            const e = $('<div>').addClass('combat-info');
             if (K.combatData.描述) {
-              const a = $("<div>").addClass("combat-description");
-              a.append(
-                $("<div>").addClass("description-label").text("作战描述")
-              ),
-                a.append(
-                  $("<div>")
-                    .addClass("description-content")
-                    .text(String(K.combatData.描述))
-                ),
-                e.append(a);
+              const a = $('<div>').addClass('combat-description');
+              (a.append($('<div>').addClass('description-label').text('作战描述')),
+                a.append($('<div>').addClass('description-content').text(String(K.combatData.描述))),
+                e.append(a));
             }
-            Object.entries(K.combatData).forEach(([a, t]) => {
-              if ("描述" !== a) {
-                const s = $("<div>").addClass("combat-info-item");
-                s.append($("<span>").addClass("combat-label").text(`${a}:`)),
+            (Object.entries(K.combatData).forEach(([a, t]) => {
+              if ('描述' !== a) {
+                const s = $('<div>').addClass('combat-info-item');
+                (s.append($('<span>').addClass('combat-label').text(`${a}:`)),
                   s.append(
-                    $("<span>")
-                      .addClass("combat-value")
-                      .text(
-                        "object" == typeof t
-                          ? JSON.stringify(t, null, 2)
-                          : String(t)
-                      )
+                    $('<span>')
+                      .addClass('combat-value')
+                      .text('object' == typeof t ? JSON.stringify(t, null, 2) : String(t)),
                   ),
-                  e.append(s);
+                  e.append(s));
               }
             }),
-              a.append(e);
-          } else
-            a.append(
-              $("<div>").addClass("combat-info-empty").text("暂无作战资料")
-            );
+              a.append(e));
+          } else a.append($('<div>').addClass('combat-info-empty').text('暂无作战资料'));
           d.append(a);
         } else {
-          const a = $("<div>").addClass("node-info"),
-            e = $("<div>").addClass("node-type-info");
-          e.append($("<div>").addClass("type-label").text("关卡类型")),
-            e.append($("<div>").addClass("type-value").text(aa(K.type))),
+          const a = $('<div>').addClass('node-info'),
+            e = $('<div>').addClass('node-type-info');
+          (e.append($('<div>').addClass('type-label').text('关卡类型')),
+            e.append($('<div>').addClass('type-value').text(aa(K.type))),
             a.append(e),
-            d.append(a);
+            d.append(a));
         }
         n.append(d);
-        const i = $("<div>").addClass("dialog-actions");
-        i.append(
-          $("<button>").addClass("ghost-btn").text("取消").on("click", ea)
-        ),
+        const i = $('<div>').addClass('dialog-actions');
+        (i.append($('<button>').addClass('ghost-btn').text('取消').on('click', ea)),
           K.nodeNumber === a.stage + 1 &&
-          i.append(
-            $("<button>")
-              .addClass("confirm-btn")
-              .text("确认选择")
-              .on("click", ta)
-          ),
+            i.append($('<button>').addClass('confirm-btn').text('确认选择').on('click', ta)),
           t.append(s).append(n).append(i),
           e.append(t),
-          l.append(e);
+          l.append(e));
       }
-      (W.innerHTML = ""), W.appendChild(l[0]);
+      ((W.innerHTML = ''), W.appendChild(l[0]));
     }
     function ua(a, e) {
-      return Array.isArray(a) && a.length > 0 ? a[0] : a ?? e;
+      return Array.isArray(a) && a.length > 0 ? a[0] : (a ?? e);
     }
     function fa() {
       try {
-        const a = { type: "message", message_id: "latest" },
+        const a = { type: 'message', message_id: 'latest' },
           e = Mvu.getMvuData(a);
         if (e?.stat_data) {
-          const a = ua(n().get(e.stat_data, "探索进度.当前层数"), 0);
+          const a = ua(n().get(e.stat_data, '探索进度.当前层数'), 0);
           return Number(a) || 0;
         }
       } catch (a) {
-        console.warn("Failed to get current layer:", a);
+        console.warn('Failed to get current layer:', a);
       }
       return 0;
     }
     function va() {
       try {
-        const a = { type: "message", message_id: "latest" },
+        const a = { type: 'message', message_id: 'latest' },
           e = Mvu.getMvuData(a);
         if (e?.stat_data) {
-          return ua(n().get(e.stat_data, "玩家数据.选择分队"), "") || "无";
+          return ua(n().get(e.stat_data, '玩家数据.选择分队'), '') || '无';
         }
       } catch (a) {
-        console.warn("Failed to get selected squad:", a);
+        console.warn('Failed to get selected squad:', a);
       }
-      return "无";
+      return '无';
     }
     function ga() {
       try {
-        const a = { type: "message", message_id: "latest" },
+        const a = { type: 'message', message_id: 'latest' },
           e = Mvu.getMvuData(a);
         if (e?.stat_data) {
-          const a = ua(
-            n().get(e.stat_data, "玩家数据.当前层世界性癖词条层数"),
-            0
-          );
+          const a = ua(n().get(e.stat_data, '玩家数据.当前层世界性癖词条层数'), 0);
           return Number(a) || 0;
         }
       } catch (a) {
-        console.warn("Failed to get fetish term layer:", a);
+        console.warn('Failed to get fetish term layer:', a);
       }
       return 0;
     }
@@ -1996,104 +1681,94 @@
         e = va(),
         t = (function () {
           try {
-            const a = { type: "message", message_id: "latest" },
+            const a = { type: 'message', message_id: 'latest' },
               e = Mvu.getMvuData(a);
-            if (e?.stat_data)
-              return (
-                ua(n().get(e.stat_data, "玩家数据.当前层世界性癖词条"), "") ||
-                ""
-              );
+            if (e?.stat_data) return ua(n().get(e.stat_data, '玩家数据.当前层世界性癖词条'), '') || '';
           } catch (a) {
-            console.warn("Failed to get current fetish term:", a);
+            console.warn('Failed to get current fetish term:', a);
           }
-          return "";
+          return '';
         })(),
         s = ga();
-      if ("异想天开分队" === e && t && s !== a) {
-        const e = { type: "message", message_id: "latest" };
+      if ('异想天开分队' === e && t && s !== a) {
+        const e = { type: 'message', message_id: 'latest' };
         try {
           const s = Mvu.getMvuData(e);
           s &&
-            (n().set(s, "stat_data.玩家数据.当前层世界性癖词条层数", a),
-              await Mvu.replaceMvuData(s, e),
-              console.info(`[世界性癖词条] AI生成了新词条: ${t}（第${a}层）`));
+            (n().set(s, 'stat_data.玩家数据.当前层世界性癖词条层数', a),
+            await Mvu.replaceMvuData(s, e),
+            console.info(`[世界性癖词条] AI生成了新词条: ${t}（第${a}层）`));
         } catch (a) {
-          console.warn("Failed to track fetish term:", a);
+          console.warn('Failed to track fetish term:', a);
         }
       }
     }
     $(() => {
-      if (((W = document.getElementById("status-app")), !W)) return;
+      if (((W = document.getElementById('status-app')), !W)) return;
       let a = null;
       const e = () => {
-        a && clearTimeout(a),
+        (a && clearTimeout(a),
           (a = setTimeout(() => {
             ca();
-          }, 150));
+          }, 150)));
       };
       (async () => {
-        await waitGlobalInitialized("Mvu"),
+        (await waitGlobalInitialized('Mvu'),
           ca(),
           (G = !1),
           pa(),
-          eventOn &&
-          Mvu?.events?.VARIABLE_UPDATE_ENDED &&
-          eventOn(Mvu.events.VARIABLE_UPDATE_ENDED, e),
-          eventOn &&
-          tavern_events?.MESSAGE_RECEIVED &&
-          eventOn(tavern_events.MESSAGE_RECEIVED, e);
+          eventOn && Mvu?.events?.VARIABLE_UPDATE_ENDED && eventOn(Mvu.events.VARIABLE_UPDATE_ENDED, e),
+          eventOn && tavern_events?.MESSAGE_RECEIVED && eventOn(tavern_events.MESSAGE_RECEIVED, e));
       })();
     });
     let $a = 0,
-      Ca = "";
+      Ca = '';
     function ba() {
       const a = fa(),
         e = va();
       if (a !== $a || e !== Ca) {
         const t = $a;
-        ($a = a),
+        (($a = a),
           (Ca = e),
-          "异想天开分队" === e &&
-          t > 0 &&
-          (async function () {
-            const a = fa(),
-              e = va(),
-              t = ga();
-            if ("异想天开分队" === e && a !== t && t > 0) {
-              const e = { type: "message", message_id: "latest" };
-              try {
-                const t = Mvu.getMvuData(e);
-                t &&
-                  (n().set(t, "stat_data.玩家数据.当前层世界性癖词条", ""),
-                    n().set(t, "stat_data.玩家数据.当前层世界性癖词条层数", a),
+          '异想天开分队' === e &&
+            t > 0 &&
+            (async function () {
+              const a = fa(),
+                e = va(),
+                t = ga();
+              if ('异想天开分队' === e && a !== t && t > 0) {
+                const e = { type: 'message', message_id: 'latest' };
+                try {
+                  const t = Mvu.getMvuData(e);
+                  t &&
+                    (n().set(t, 'stat_data.玩家数据.当前层世界性癖词条', ''),
+                    n().set(t, 'stat_data.玩家数据.当前层世界性癖词条层数', a),
                     await Mvu.replaceMvuData(t, e),
-                    console.info(
-                      `[世界性癖词条] 层数变化，清空旧词条，等待AI生成新词条（第${a}层）`
-                    ));
-              } catch (a) {
-                console.warn("Failed to clear fetish term:", a);
+                    console.info(`[世界性癖词条] 层数变化，清空旧词条，等待AI生成新词条（第${a}层）`));
+                } catch (a) {
+                  console.warn('Failed to clear fetish term:', a);
+                }
               }
-            }
-          })();
+            })());
       } else 0 === $a && (($a = a), (Ca = e));
-      "异想天开分队" === e && ma();
+      '异想天开分队' === e && ma();
     }
     $(() => {
       (async () => {
-        await waitGlobalInitialized("Mvu"),
+        (await waitGlobalInitialized('Mvu'),
           ba(),
           eventOn &&
-          Mvu?.events?.VARIABLE_UPDATE_ENDED &&
-          eventOn(Mvu.events.VARIABLE_UPDATE_ENDED, () => {
-            ba();
-          }),
-          eventOn &&
-          tavern_events?.MESSAGE_RECEIVED &&
-          eventOn(tavern_events.MESSAGE_RECEIVED, () => {
-            setTimeout(() => {
+            Mvu?.events?.VARIABLE_UPDATE_ENDED &&
+            eventOn(Mvu.events.VARIABLE_UPDATE_ENDED, () => {
               ba();
-            }, 100);
-          });
+            }),
+          eventOn &&
+            tavern_events?.MESSAGE_RECEIVED &&
+            eventOn(tavern_events.MESSAGE_RECEIVED, () => {
+              setTimeout(() => {
+                ba();
+              }, 100);
+            }));
       })();
     });
     t(286);
@@ -2107,7 +1782,7 @@
 
     /*! tailwindcss v4.1.18 | MIT License | https://tailwindcss.com */
     .difficulty-selector-root {
-      font-family: "Inter", "Noto Sans SC", sans-serif;
+      font-family: 'Inter', 'Noto Sans SC', sans-serif;
       position: fixed;
       inset: 0;
       background: linear-gradient(135deg, #0d1117 0%, #0b0f15 100%);
@@ -2140,9 +1815,11 @@
     }
 
     .difficulty-selector-root::-webkit-scrollbar-thumb:hover {
-      background: linear-gradient(180deg,
-          rgb(81.3571428571, 220.4285714286, 241.6428571429),
-          rgb(55.016194332, 184.6194331984, 242.983805668));
+      background: linear-gradient(
+        180deg,
+        rgb(81.3571428571, 220.4285714286, 241.6428571429),
+        rgb(55.016194332, 184.6194331984, 242.983805668)
+      );
     }
 
     .difficulty-title-section {
@@ -2528,7 +2205,7 @@
 
     /*! tailwindcss v4.1.18 | MIT License | https://tailwindcss.com */
     .options-root {
-      font-family: "Inter", "Noto Sans SC", sans-serif;
+      font-family: 'Inter', 'Noto Sans SC', sans-serif;
       position: fixed;
       top: 20px;
       left: 50%;
@@ -2552,7 +2229,7 @@
     }
 
     .options-panel::after {
-      content: "";
+      content: '';
       position: absolute;
       inset: 0;
       border: 1px solid rgba(34, 211, 238, 0.12);
@@ -2635,9 +2312,11 @@
     }
 
     .options-grid::-webkit-scrollbar-thumb:hover {
-      background: linear-gradient(180deg,
-          rgb(81.3571428571, 220.4285714286, 241.6428571429),
-          rgb(55.016194332, 184.6194331984, 242.983805668));
+      background: linear-gradient(
+        180deg,
+        rgb(81.3571428571, 220.4285714286, 241.6428571429),
+        rgb(55.016194332, 184.6194331984, 242.983805668)
+      );
     }
 
     .options-grid {
@@ -2657,13 +2336,10 @@
     }
 
     .option-btn::before {
-      content: "";
+      content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(90deg,
-          transparent,
-          rgba(34, 211, 238, 0.1),
-          transparent);
+      background: linear-gradient(90deg, transparent, rgba(34, 211, 238, 0.1), transparent);
       transform: translateX(-100%);
       transition: transform 0.5s ease;
     }
@@ -2725,7 +2401,7 @@
 
     /*! tailwindcss v4.1.18 | MIT License | https://tailwindcss.com */
     .squad-selector-root {
-      font-family: "Inter", "Noto Sans SC", sans-serif;
+      font-family: 'Inter', 'Noto Sans SC', sans-serif;
       position: fixed;
       inset: 0;
       background: linear-gradient(135deg, #0d1117 0%, #0b0f15 100%);
@@ -2758,9 +2434,11 @@
     }
 
     .squad-selector-root::-webkit-scrollbar-thumb:hover {
-      background: linear-gradient(180deg,
-          rgb(81.3571428571, 220.4285714286, 241.6428571429),
-          rgb(55.016194332, 184.6194331984, 242.983805668));
+      background: linear-gradient(
+        180deg,
+        rgb(81.3571428571, 220.4285714286, 241.6428571429),
+        rgb(55.016194332, 184.6194331984, 242.983805668)
+      );
     }
 
     .squad-selector-root {
@@ -2819,9 +2497,11 @@
     }
 
     .squad-grid::-webkit-scrollbar-thumb:hover {
-      background: linear-gradient(180deg,
-          rgb(81.3571428571, 220.4285714286, 241.6428571429),
-          rgb(55.016194332, 184.6194331984, 242.983805668));
+      background: linear-gradient(
+        180deg,
+        rgb(81.3571428571, 220.4285714286, 241.6428571429),
+        rgb(55.016194332, 184.6194331984, 242.983805668)
+      );
     }
 
     .squad-grid {
@@ -2855,7 +2535,7 @@
     }
 
     .squad-card::before {
-      content: "";
+      content: '';
       position: absolute;
       inset: 0;
       border: 2px solid var(--squad-color, #22d3ee);
@@ -2995,13 +2675,10 @@
     }
 
     .squad-start-btn::before {
-      content: "";
+      content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(90deg,
-          transparent,
-          rgba(255, 255, 255, 0.2),
-          transparent);
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
       transform: translateX(-100%);
       transition: transform 0.6s ease;
     }
@@ -3031,7 +2708,8 @@
       max-height: 80vh;
       background: rgba(17, 24, 33, 0.95);
       border: 2px solid var(--squad-color, #22d3ee);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6),
+      box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.6),
         0 0 20px rgba(var(--squad-color-rgb, 34, 211, 238), 0.3);
       padding: 24px;
       display: flex;
@@ -3041,7 +2719,7 @@
     }
 
     .squad-dialog::before {
-      content: "";
+      content: '';
       position: absolute;
       inset: 0;
       border: 2px solid rgba(var(--squad-color-rgb, 34, 211, 238), 0.3);
@@ -3065,9 +2743,11 @@
     }
 
     .squad-dialog::-webkit-scrollbar-thumb:hover {
-      background: linear-gradient(180deg,
-          rgb(81.3571428571, 220.4285714286, 241.6428571429),
-          rgb(55.016194332, 184.6194331984, 242.983805668));
+      background: linear-gradient(
+        180deg,
+        rgb(81.3571428571, 220.4285714286, 241.6428571429),
+        rgb(55.016194332, 184.6194331984, 242.983805668)
+      );
     }
 
     .squad-dialog {
@@ -3186,9 +2866,7 @@
     }
 
     .squad-dialog-confirm-btn {
-      background: linear-gradient(90deg,
-          var(--squad-color, #22d3ee),
-          var(--squad-color, #0ea5e9));
+      background: linear-gradient(90deg, var(--squad-color, #22d3ee), var(--squad-color, #0ea5e9));
       border: none;
       color: #0d1117;
       font-weight: 700;
@@ -3299,7 +2977,7 @@
 
     /*! tailwindcss v4.1.18 | MIT License | https://tailwindcss.com */
     .ark-root {
-      font-family: "Inter", "Noto Sans SC", sans-serif;
+      font-family: 'Inter', 'Noto Sans SC', sans-serif;
       background: linear-gradient(135deg, #0d1117 0%, #0b0f15 100%);
       color: #e6f7ff;
       padding: 16px;
@@ -3332,8 +3010,8 @@
     .panel.split-container {
       display: grid;
       grid-template-areas:
-        "h h"
-        "c i";
+        'h h'
+        'c i';
       column-gap: 12px;
       row-gap: 4px;
     }
@@ -3358,7 +3036,7 @@
     .panel::after,
     .progress-card::after,
     .route-map-panel::after {
-      content: "";
+      content: '';
       position: absolute;
       inset: 0;
       border: 1px solid rgba(34, 211, 238, 0.12);
@@ -4233,9 +3911,11 @@
     }
 
     .route-map-container::-webkit-scrollbar-thumb:hover {
-      background: linear-gradient(90deg,
-          rgb(81.3571428571, 220.4285714286, 241.6428571429),
-          rgb(55.016194332, 184.6194331984, 242.983805668));
+      background: linear-gradient(
+        90deg,
+        rgb(81.3571428571, 220.4285714286, 241.6428571429),
+        rgb(55.016194332, 184.6194331984, 242.983805668)
+      );
     }
 
     .route-map-container {
@@ -4343,7 +4023,7 @@
     }
 
     .route-connector::after {
-      content: "";
+      content: '';
       position: absolute;
       right: 0;
       top: 50%;
@@ -4486,9 +4166,9 @@
 
       .panel.split-container {
         grid-template-areas:
-          "h"
-          "c"
-          "i";
+          'h'
+          'c'
+          'i';
         row-gap: 4px;
       }
 
